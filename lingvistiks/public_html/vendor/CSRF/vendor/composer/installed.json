@@ -1,0 +1,99 @@
+[
+    {
+        "name": "riimu/kit-securerandom",
+        "version": "v1.2.0",
+        "version_normalized": "1.2.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Riimu/Kit-SecureRandom.git",
+            "reference": "00067b0f9c74dcfc2441235114da47c00476095a"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Riimu/Kit-SecureRandom/zipball/00067b0f9c74dcfc2441235114da47c00476095a",
+            "reference": "00067b0f9c74dcfc2441235114da47c00476095a",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4.0"
+        },
+        "suggest": {
+            "ext-mcrypt": "To use the Mcrypt secure random byte generator",
+            "ext-openssl": "To use the OpenSSL secure random byte generator"
+        },
+        "time": "2016-05-12 06:26:37",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Riimu\\Kit\\SecureRandom\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Riikka Kalliomäki",
+                "email": "riikka.kalliomaki@gmail.com",
+                "homepage": "http://riimu.net"
+            }
+        ],
+        "description": "Library for leveraging available secure random generators",
+        "homepage": "http://kit.riimu.net",
+        "keywords": [
+            "generator",
+            "random",
+            "secure"
+        ]
+    },
+    {
+        "name": "riimu/kit-csrf",
+        "version": "v2.4.0",
+        "version_normalized": "2.4.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Riimu/Kit-CSRF.git",
+            "reference": "afd75baf14acd462a93206a15066728572608d58"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Riimu/Kit-CSRF/zipball/afd75baf14acd462a93206a15066728572608d58",
+            "reference": "afd75baf14acd462a93206a15066728572608d58",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4.0",
+            "riimu/kit-securerandom": "1.*"
+        },
+        "time": "2015-08-22 06:11:41",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Riimu\\Kit\\CSRF\\": [
+                    "src/",
+                    "tests/tests/"
+                ]
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Riikka Kalliomäki",
+                "email": "riikka.kalliomaki@gmail.com",
+                "homepage": "http://riimu.net"
+            }
+        ],
+        "description": "Secure and simple CSRF library protected against timing and BREACH attacks",
+        "homepage": "http://kit.riimu.net",
+        "keywords": [
+            "csrf",
+            "security"
+        ]
+    }
+]

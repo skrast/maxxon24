@@ -1,0 +1,66 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "6e50fc0b5d2e6be9d8af1f073e5518af",
+    "content-hash": "fb40ca37a4cfc6cbe8ce7d8537f5c838",
+    "packages": [
+        {
+            "name": "voronkovich/sberbank-acquiring-client",
+            "version": "v1.1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/voronkovich/sberbank-acquiring-client.git",
+                "reference": "7c0148166b7cb7117a95b16c4b77e58be5e5ade6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/voronkovich/sberbank-acquiring-client/zipball/7c0148166b7cb7117a95b16c4b77e58be5e5ade6",
+                "reference": "7c0148166b7cb7117a95b16c4b77e58be5e5ade6",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Voronkovich\\SberbankAcquiring\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Oleg Voronkovich",
+                    "email": "oleg-voronkovich@yandex.ru"
+                }
+            ],
+            "description": "Client for working with Sberbank's acquiring REST API",
+            "homepage": "https://github.com/voronkovich/sberbank-acquiring-client",
+            "keywords": [
+                "acquiring",
+                "client",
+                "credit card",
+                "sberbank"
+            ],
+            "time": "2017-07-26 08:44:48"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

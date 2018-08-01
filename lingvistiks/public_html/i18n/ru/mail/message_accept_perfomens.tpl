@@ -1,0 +1,1 @@
+<p>По Вашему заказу №{{ document_info.document_id }} найден исполнитель. Стоимость заказа составляет {{ coast|escape|stripslashes }} {{ currency.title|escape|stripslashes }}. Срок получения {{ date|escape|stripslashes }}. Способ получения {{ get|escape|stripslashes }}. Комментарий {{ message|escape|stripslashes }}</p>

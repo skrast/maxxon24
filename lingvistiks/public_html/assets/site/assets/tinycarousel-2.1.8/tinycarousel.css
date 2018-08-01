@@ -1,0 +1,102 @@
+/* Tiny Carousel */
+#tinySlider, #tinySliderMessage {
+    margin: 30px 0 0;
+    position: relative;
+    padding: 0;
+}
+
+#tinySlider .viewport {
+    height: 85px;
+    overflow: hidden;
+    position: relative;
+}
+
+#tinySliderMessage  .viewport {
+    height: 585px;
+    overflow: hidden;
+    position: relative;
+}
+
+#tinySlider .buttons,
+#tinySliderMessage .buttons {
+    display: block;
+    position: absolute;
+    top: -25px;
+    left: 110px;
+    width: 30px;
+    height: 9px;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    line-height: 35px;
+    text-decoration: none;
+    font-size: 22px;
+}
+
+main.no-sidebar #tinySlider .buttons,
+main.no-sidebar #tinySliderMessage .buttons {
+    display: block;
+    position: absolute;
+    top: -25px;
+    left: 80px;
+    width: 30px;
+    height: 9px;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    line-height: 35px;
+    text-decoration: none;
+    font-size: 22px;
+}
+
+main.no-sidebar #tinySlider .next,
+main.no-sidebar #tinySliderMessage .next {
+    right: auto;
+    left: 80px;
+    top: auto;
+    bottom: 0;
+}
+
+/*#tinySlider .buttons:hover {
+    color: #C01313;
+    background: #fff;
+}*/
+
+#tinySlider .disable, #tinySliderMessage .disable {
+    visibility: hidden;
+}
+
+#tinySlider .overview {
+    list-style: none;
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    width: 190px;
+    left: 0;
+    top: 0;
+}
+
+#tinySliderMessage .overview {
+    list-style: none;
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+
+#tinySlider .overview li {
+    float: left;
+    margin: 0 20px 0 0;
+    padding: 7px 0;
+    height: 21px;
+    width: 100%;
+ }
+
+#tinySliderMessage .overview li {
+    margin: 0 20px 0 0;
+    padding: 1px;
+    height: 50px;
+    width: 100%;
+ }

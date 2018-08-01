@@ -1,0 +1,53 @@
+// Services block
+.mxn-row--services {
+	padding-top: 55px;
+	margin-bottom: 40px;
+	text-align: center;
+
+	@media (max-width:$viewport_width_mobile_l) {
+		padding-top: 35px;
+		margin-bottom: 20px;
+	}
+}
+
+.services-container {
+	text-align: center;
+	font-size: 0;
+	margin-top: 55px;
+
+	@media (max-width:$viewport_width_mobile_l) {
+		margin-top: 35px;
+	}
+
+	.service-item {
+		display: inline-block;
+		font-size: 16px;
+		width: 290px;
+		padding: 0 15px;
+		vertical-align: top;
+
+		@media (max-width:$viewport_width_desktop_l) {
+			width: 240px;
+		}
+		@media (max-width:$viewport_width_tablet_l) {
+			width: 186px;
+		}
+		@media (max-width:$viewport_width_mobile_l) {
+			width: 100%;
+			margin-bottom: 30px;
+
+			&:last-child {margin-bottom: 0;}
+		}
+
+		img {}
+		.item-text {
+			font-size: 18px;
+			text-transform: uppercase;
+
+			@media (max-width:$viewport_width_desktop_l) {
+				font-size: 15px;
+			}
+		}
+	}
+}
+// End of Services block

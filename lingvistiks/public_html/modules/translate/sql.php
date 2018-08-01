@@ -1,0 +1,10 @@
+<?php
+$sql = [
+	"install" => [
+
+	],
+	"uninstall" => [
+	
+	],
+];
+?>

@@ -1,0 +1,5 @@
+{
+    "require": {
+        "voronkovich/sberbank-acquiring-client": "^1.1"
+    }
+}

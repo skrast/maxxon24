@@ -1,0 +1,14 @@
+@media print {
+	header.navbar,
+	.dockmodal,
+	.filters,
+	.menubar .page-title-menu,
+	.menubar .countdown
+	{
+		display:none;
+	}
+
+	a[href]:after {
+      content: " ";
+    }
+}

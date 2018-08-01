@@ -1,0 +1,69 @@
+// Layout variables
+$container_width_desktop_lg: 1170px;
+$container_width_desktop_m: 970px;
+$container_width_tablet: 750px;
+$container_width_mobile: auto;
+// Layout variables
+
+
+// Main Layout --------------------------------------------------------------------------------------------------------
+.container {
+	padding: 0 15px;
+	position: relative;
+	margin: 0 auto;
+
+	@media (min-width:$viewport_width_mobile_h) and (max-width:$viewport_width_tablet_l){
+		width: $container_width_tablet;
+	}
+	@media (min-width:$viewport_width_tablet_h) and (max-width:$viewport_width_desktop_l) {
+		width: $container_width_desktop_m;
+	}
+	@media (min-width:$viewport_width_desktop_h) {
+		width: $container_width_desktop_lg;
+	}
+
+	&:after, &:before { content: ''; display: block; clear: both; }
+}
+
+.mxn-row {
+  //margin: 0 -15px;
+
+  &:after, &:before { content: ''; display: block; clear: both; }
+}
+.row {
+	margin: 0 -15px;
+
+	@media (max-width:$viewport_width_mobile_l) {
+		margin: 0;
+	}
+
+	&:after, &:before { content: ''; display: block; clear: both; }
+}
+.col-50 {
+  float:left;
+  padding:0 15px;
+  position: relative;
+  width: 49.99%;
+
+  &:after, &:before { content: ''; display: block; clear: both; }
+}
+// End of Main Layout -------------------------------------------------------------------------------------------------
+
+html, body {
+	width: 100%;
+	height: 100%;
+}
+body {
+	background: $white;
+	color: $text;
+	font-size: 16px;
+	font-family: 'Ubuntu', Arial, sans-serif;
+	font-weight: 400;
+	line-height: normal;
+}
+
+#root {
+	position: relative;
+	width: 100%;
+	min-height: 100%;
+}

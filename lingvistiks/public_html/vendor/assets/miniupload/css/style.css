@@ -1,0 +1,103 @@
+/*----------------------------
+    The file upload form
+-----------------------------*/
+#drop a, #drop2 a {
+    cursor:pointer;
+}
+#drop input, #drop2 input {
+    display:none;
+}
+
+#upload ul, #upload2 ul {
+    border-top:1px solid #EDF2F7;
+}
+
+#upload ul li, #upload2 ul li {
+    background-color:#fff;
+    border-bottom:1px solid #EDF2F7;
+    padding:15px;
+    height: 52px;
+    position: relative;
+    box-sizing: content-box;
+}
+#upload ul li:last-child, #upload2 ul li:last-child {
+	border-bottom:none;
+}
+#upload ul li input, #upload2 ul li input {
+    display: none;
+}
+
+#upload ul li p, #upload2 ul li p {
+    overflow: hidden;
+    white-space: nowrap;
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+    position: absolute;
+    top: 20px;
+    left: 100px;
+}
+
+#upload ul li i, #upload2 ul li i {
+    font-weight: normal;
+    font-style:normal;
+    color:#7f7f7f;
+    display:block;
+}
+
+#upload ul li canvas, #upload2 ul li canvas {
+    top: 15px;
+    left: 32px;
+    position: absolute;
+}
+
+#upload ul li span, #upload2 ul li span {
+    width: 15px;
+    height: 12px;
+    background: url('../img/icons.png') no-repeat;
+    position: absolute;
+    top: 34px;
+    right: 33px;
+    cursor:pointer;
+}
+
+#upload ul li.working span, #upload2 ul li.working span {
+    height: 16px;
+    background-position: 0 -12px;
+}
+
+#upload ul li.error p, #upload2 ul li.error p {
+    color:red;
+}
+
+
+
+
+#upload .form-group, #upload2 .form-group {
+	background:none;
+}
+.upload-file-dropbox-zone {
+    border: 1px dashed #D4D4D4;
+    margin: 10px 0px 0px;
+    padding: 35px 30px 30px;
+}
+.upload-file-dropbox-zone-select-files {
+    color: #4573B1;
+    position: relative;
+    display: inline-block;
+    line-height: 1;
+    text-decoration: underline;
+}
+.upload-file-dropbox-files {
+    cursor: pointer;
+    height: 100%;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+}
+.upload-file-dropbox-files input {
+    cursor: pointer;
+    height: 100%;
+    font-size: 40px;
+}

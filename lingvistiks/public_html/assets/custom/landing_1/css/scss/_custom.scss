@@ -1,0 +1,24 @@
+// Layout & custom selectors ------------------------------------------------------------------------------------------
+.clear{height: 0;font-size: 0;line-height: 0;clear: both;}
+a { color: $text; text-decoration: none; }
+a:focus {text-decoration: none;}
+a:hover {color: $text; text-decoration: underline;}
+input,button,a,a:focus {outline: none;}
+img { max-width: 100%; }
+p {margin: 5px 0;}
+sup,sub {font-size:0.6em;}
+
+
+/* Input text */
+input[type="text"],input[type="phone"], input[type="email"],button { height:30px; padding:0 5px; border: 1px solid #ccc; font-size:15px; font-family: 'Open Sans', Arial, sans-serif;}
+::-webkit-input-placeholder {color:#aaa;font-size: 16px; font-family: 'Open Sans', Arial, sans-serif; font-weight: 300;}
+::-moz-placeholder {color:#aaa;font-size: 16px; font-family: 'Open Sans', Arial, sans-serif; font-weight: 300;}
+:-ms-input-placeholder {color:#aaa;font-size: 16px; font-family: 'Open Sans', Arial, sans-serif; font-weight: 300;}
+:-moz-placeholder {color:#aaa;font-size: 18px; font-family: 'Open Sans', Arial, sans-serif;}
+@include placeholder(#aaa, 16px, 300);
+textarea {padding:10px; border:1px solid #ddd;font-size:16px; font-family: 'Open Sans', Arial, sans-serif;}
+input[type="submit"],button {cursor: pointer;}
+select { height: 24px; }
+// End of Layout & custom selectors -----------------------------------------------------------------------------------
+
+

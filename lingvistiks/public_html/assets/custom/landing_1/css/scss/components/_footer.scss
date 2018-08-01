@@ -1,0 +1,117 @@
+// Footer block
+.mxn-row--footer {
+	background: url(../images/bg-footer.jpg) no-repeat top center;
+	background-size: cover;
+	margin-top: 130px;
+	padding-bottom: 10px;
+	
+	@media (max-width:$viewport_width_desktop_l) {
+		margin-top: 100px;
+	}
+	@media (max-width:$viewport_width_mobile_l) {
+		margin-top: 50px;
+	}
+
+	.mxn-title {
+		margin-top: 50px;
+		color: $white;
+		font-size: 33px;
+		font-weight: 700;
+		width: 540px;
+		line-height: 1.6em;
+		border: none;
+
+		@media (max-width:$viewport_width_desktop_l) {
+			font-size: 30px;
+		}
+		@media (max-width:$viewport_width_mobile_l) {
+			margin-top: 40px;
+			width:auto;
+			font-size: 22px;
+		}
+	}
+	.mxn-footer-line {
+		background: $orange;
+		height: 2px;
+		width: 385px;
+		margin: 20px 0 34px;
+
+		@media (max-width:$viewport_width_mobile_l) {
+			width: auto;
+			margin: 0 0 20px;
+		}
+	}
+	.mxn-text-padding {
+		width: 620px;
+		padding-left:7px;
+
+		@media (max-width:$viewport_width_mobile_l) {
+			width: auto;
+		}
+
+		.mxn-p {
+			color: $white;
+			margin-bottom: 30px;
+			padding-left: 16px;
+			font-size: 18px;
+
+			@media (max-width:$viewport_width_mobile_l) {
+				margin-bottom: 15px;
+				padding-left: 12px;
+				font-size: 16px;
+			}
+		}
+		.btn {
+			font-weight: 700;
+			text-transform: uppercase;
+			margin-bottom: 39px;
+
+			@media (max-width:$viewport_width_mobile_l) {
+				margin-bottom: 20px;
+				font-size: 12px;
+			}
+		}
+	}
+}
+// End of Footer block
+
+
+
+#footer {
+	@extend .clearfix;
+	background: $blue;
+	height: 60px;
+
+	@media (max-width:$viewport_width_mobile_l) {
+		height: auto;
+		text-align: center;
+	}
+
+	.footer__logo {
+		float: left;
+		background: url(../images/logo-2.png) no-repeat;
+		width: 52px;
+		height: 44px;
+		margin-top: 7px;
+
+		@media (max-width:$viewport_width_mobile_l) {
+			float: none;
+			display: inline-block;
+		}
+	}
+	.footer__text {
+		float: right;
+		text-align: right;
+		color: $white;
+		font-weight: 300;
+		text-transform: uppercase;
+		line-height: 1.4em;
+		margin-top: 8px;
+		
+		@media (max-width:$viewport_width_mobile_l) {
+			float: none;
+			text-align: center;
+			padding-bottom: 8px;
+		}
+	}
+}

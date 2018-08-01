@@ -1,0 +1,70 @@
+<?php
+$lang = [
+    'profile_name' => 'Сотрудники',
+    'profile_add' => 'Добавить сотрудника',
+
+    'profile_edit_link' => 'Настройки профиля',
+
+    'profile_email' => 'E-mail',
+    'profile_password' => 'Пароль',
+    'profile_password_copy' => 'Пароль еще раз',
+    'profile_secret' => 'Api ключ',
+    'profile_secret_reset' => 'Создать новый ключ api',
+    'profile_group' => 'Группа',
+    'profile_block' => 'Причина блокировки',
+    'profile_status' => 'Профиль активен',
+    'profile_lang' => 'Язык системы',
+    'profile_notify' => 'Разрешить уведомления в системе',
+    'profile_notify_email' => 'Разрешить отправку сообщений на email',
+    'profile_notify_phone' => 'Разрешить отправку сообщений на телефон',
+    'profile_notify_login' => 'Разрешить уведомления о входе в систему',
+    'profile_firstname' => 'Имя',
+    'profile_patronymic' => 'Отчество',
+    'profile_lastname' => 'Фамилия',
+    'profile_timezone' => 'Часовой пояс',
+    'profile_birthday' => 'День рождения',
+    'profile_from' => 'Место проживания',
+    'profile_phone' => 'Номер телефона',
+    'profile_skype' => 'Skype',
+    'profile_citizenship' => 'Гражданство',
+    'profile_reg' => 'Зарегистрирован',
+    'profile_permission' => 'Права в системе',
+    'profile_permission_show' => 'Развернуть',
+
+    'profile_login_error' => 'Логин указан неверно. Можно использовать латиницу и арабские цифры. Максимальное количество символов 20',
+    'profile_birthday_error' => 'Дата рождения указана неверно',
+    'profile_default_lang_error' => 'Родной язык указан неверно',
+    'profile_skype_error' => 'Skype указан неверно',
+    'profile_firstname_error' => 'Не заполнено имя',
+    'profile_lastname_error' => 'Не заполнена фамилия',
+    'profile_password_error' => 'Пароль слишком короткий, 6 символов минимум',
+    'profile_password_copy_error' => 'Пароли не совпадают',
+    'profile_email_error' => 'Введён некорректный адрес электронной почты',
+    'profile_email_used_error' => 'Данный электронный адрес уже зарегистрирован в системе',
+    'profile_group_error' => 'Группа указана неверно',
+    'profile_perm_error' => 'Права указаны неверно',
+
+	'profile_add_log' => 'Добавил пользователя',
+    'profile_edit_log' => 'Отредактировал пользователя',
+
+	'profile_tab1' => 'Основная информация',
+	'profile_active_chart' => 'Динамика активности',
+
+    'profile_change_password_mail' => 'Ваш пароль был изменен',
+
+    'profile_country_default' => 'Страна*',
+    'profile_city_default' => 'Город*',
+    'profile_lang_default' => 'Родной язык*',
+    'profile_serv_lang_default' => 'Выбрать язык',
+    'profile_country_place_default' => 'Страна экскурсий',
+    'profile_city_place_default' => 'Город экскурсий',
+    'profile_user_experience_default' => 'Опыт работы',
+
+    'lk_info_experience_year' => 'год года лет',
+
+    'profile_billing_date' => 'Подписка активна до',
+    'profile_billing_add_pay' => 'Зачислить оплату',
+    'profile_billing_add_pay_type' => 'Источник платежа',
+    'profile_billing_add_tariff' => 'Назначить тариф',
+];
+?>

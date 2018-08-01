@@ -1,0 +1,46 @@
+cd /home/reimax/www/ave.lcl/vendor/whoops/ && composer update
+
+cd /home/reimax/www/ave.lcl/vendor/twig/extensions/ && composer update
+
+cd /home/reimax/www/ave.lcl/vendor/twig/ && composer update
+
+cd /home/reimax/www/ave.lcl/vendor/CSRF/ && composer update
+
+cd /home/reimax/www/ave.lcl/vendor/SwiftMailer2/ && composer update
+
+cd /home/reimax/www/ave.lcl/vendor/yandex/ && composer update
+
+cd /home/reimax/www/ave.lcl/vendor/google/ && composer update
+
+cd /home/reimax/www/ave.lcl/vendor/google-api/ && composer update
+
+cd /home/reimax/www/ave.lcl/vendor/dropbox/ && composer update
+
+cd /home/reimax/www/ave.lcl/vendor/RESTful/ && composer update
+
+cd /home/reimax/www/ave.lcl/vendor/PHPThumb/ && composer update
+
+cd /home/reimax/www/ave.lcl/vendor/loader/ && composer update
+
+cd /home/reimax/www/ave.lcl/vendor/validation/ && composer update
+
+cd /home/reimax/www/ave.lcl/vendor/php-imap-client/ && composer update
+
+cd /home/reimax/www/ave.lcl/vendor/emogrifier/ && composer update
+
+cd /home/reimax/www/ave.lcl/vendor/parallel/ && composer update
+
+cd /home/reimax/www/ave.lcl/vendor/google2fa/ && composer update
+
+https://github.com/itsjavi/bootstrap-colorpicker
+https://github.com/jackmoore/colorbox
+https://github.com/myclabs/jquery.confirm
+https://github.com/IonDen/ion.rangeSlider
+https://github.com/summernote/summernote
+https://github.com/PHPOffice/PHPExcel
+https://github.com/tecnickcom/TCPDF
+https://github.com/gionkunz/chartist-js
+https://github.com/tmmdata/chartist-plugin-tooltip
+https://github.com/gionkunz/chartist-plugin-pointlabels
+https://github.com/CodeYellowBV/chartist-plugin-legend
+https://github.com/fullcalendar/fullcalendar

@@ -1,0 +1,142 @@
+* {
+  outline:none!important;
+}
+body {
+    font-family:'PT Sans';
+    /*font-size: 16px;*/
+	font-size: 1.7em;
+	line-height: 1.7em;
+    weight:400;
+}
+input.form-control[type="text"]:focus, input.form-control[type="email"]:focus, input.form-control[type="password"]:focus {
+    outline: medium none;
+    box-shadow: none;
+}
+
+#signin  {
+  background: #465568 url("../images/login/login-img7.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+#signin .content {
+  min-height: auto;
+  max-width: 520px;
+  margin: 40px auto 0px;
+  padding: 42px 48px;
+  background: #FFF none repeat scroll 0% 0%;
+  box-shadow: 0px 1px 40px 0px rgba(0, 0, 0, 0.3);
+
+  position: relative;
+  transition: all 0.3s ease-out 0s;
+}
+#signin .bottom-wrapper .message {
+    text-align: center;
+    color: #FFF;
+}
+#signin .bottom-wrapper .message a {
+    margin-left: 6px;
+}
+#signin .bg {
+  background:none;
+  padding-top: 100px;
+}
+#signin .bottom-wrapper .message {
+  border: 1px solid #6C7A8D;
+}
+#signin h3 {
+  display: block;
+  background-color: #323D4B;
+  text-align: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  /*font-size: 22px;*/
+  font-size: 1.5em;
+  line-height: 1.5em;
+  font-weight: 400;
+  color: #638CAC;
+  border-radius: 7px 7px 0px 0px;
+  max-width: 520px;
+  margin: 0px auto;
+  position:relative;
+}
+#signin .content {
+    margin: 0px auto;
+    background-color: #3A4554;
+    color: #DBE2EA;
+}
+#signin .form-control {
+    background-color: #303A48;
+    border: medium none;
+    height: 50px;
+    color: #697687;
+	font-family:'PT Sans';
+    /*font-size: 16px;*/
+	font-size: inherit;
+	line-height: inherit;
+}
+#signin .content .fields {
+    margin-bottom: 30px;
+}
+#signin .btn-flat {
+  background-color: #339dc8;
+  display: inline-block;
+  margin: 0;
+  /*line-height: 15px;*/
+  /*vertical-align: middle;*/
+  font-size:inherit;
+  line-height:inherit;
+  text-shadow: none;
+  box-shadow: none;
+  background-image: none;
+  border: 0 none;
+  color: #fff;
+  font-weight: 500;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 5px 10px;
+  -webkit-transition: all .1s linear;
+  -moz-transition: all .1s linear;
+  transition: all .1s linear;
+}
+#signin .btn-flat:active, .btn-flat:focus {
+  -webkit-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.3) inset;
+  -moz-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.3) inset;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.3) inset;
+  opacity: 1;
+  text-decoration: none;
+}
+#signin .btn-flat:hover {
+  text-decoration: none;
+  opacity: 0.87;
+  color: #fff;
+}
+#signin .content .actions {
+  margin: 20px 0 0 0;
+}
+#signin .bottom-wrapper .message {
+  display: block;
+  background-color: #323D4B;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 0px 0px 7px 7px;
+  margin: 0px auto;
+  max-width: 520px;
+  border:none;
+}
+#signin .bottom-wrapper .message a, #signin .content a {
+  text-decoration: underline;
+  color: #638CAC;
+}
+#signin .bottom-wrapper .message a:hover, #signin .content a:hover {
+    color: #7ba2c0;
+}
+.actions {
+  text-align:center;
+  margin:20px 0;
+}
+.actions span {
+  padding:0 50px;
+}

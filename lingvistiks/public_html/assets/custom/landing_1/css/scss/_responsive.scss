@@ -1,0 +1,13 @@
+@media (max-width: $desktop1) {
+	// 970 / 1270
+	body {
+		font-size: 0.76em;
+	}
+
+}
+
+@media (max-width: $mobile1) {
+	body {
+		font-size: 16px;
+	}
+}

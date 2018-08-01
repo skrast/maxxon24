@@ -1,0 +1,162 @@
+<Files .htaccess>
+	order allow,deny
+	deny from all
+</Files>
+
+## Загрузки
+php_value post_max_size 100M
+php_value upload_max_filesize 100M
+php_value error_reporting none
+php_value memory_limit 150M
+
+## Отрубаем вывод ошибок
+php_value display_startup_errors off
+php_value display_errors off
+php_value error_reporting off
+
+## Глобальные настройки
+php_value register_globals Off
+php_value magic_quotes_gpc Off
+php_value session.auto_start Off
+php_value safe_mode Off
+
+Options -Indexes +FollowSymLinks
+AddDefaultCharset utf-8
+
+<FilesMatch "\.(class|functions|inc|modules|templates|cache|lib|session)$">
+    Order allow,deny
+</FilesMatch>
+
+<IfModule mod_expires.c>
+	ExpiresActive On
+	ExpiresDefault "access plus 60 minutes"
+	ExpiresByType text/html "now"
+</IfModule>
+
+<IfModule mod_rewrite.c>
+	RewriteEngine on
+	RewriteBase /
+
+	# retina error
+	RewriteCond %{REQUEST_FILENAME} @2x\.[a-z]+$
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^(.*)@2x(.*)$ $1$2 [E=QHNORETINA:1]
+	RewriteCond %{ENV:QHNORETINA} 1
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule .* - [L,R=404]
+	# retina error
+
+	RewriteRule ^auth/$ site.php?do=siteAuth&sub=user_login [QSA,L]
+	RewriteRule ^register/$ site.php?do=siteAuth&sub=user_register [QSA,L]
+	RewriteRule ^register/confirm/(.*)$ site.php?do=siteAuth&sub=user_register_confirm [QSA,L]
+	RewriteRule ^auth/profile/$ site.php?do=siteAuth&sub=get_profile [QSA,L]
+	RewriteRule ^auth/recover/$ site.php?do=siteAuth&sub=user_recover [QSA,L]
+	RewriteRule ^auth/recover/verify/$ site.php?do=siteAuth&sub=user_recover_verify [QSA,L]
+
+	RewriteRule ^support/$ api/module/tiket?execute=tiket_add&api_key=3d23wa3n49v0mc96f7d6 [QSA,L]
+
+	RewriteRule ^profile/$ site.php?do=siteProfile&sub=user_profile [QSA,L]
+	RewriteRule ^profile/exit/$ site.php?do=siteProfile&sub=user_exit [QSA,L]
+	RewriteRule ^profile/upload/$ site.php?do=siteProfile&sub=user_profile_upload [QSA,L]
+	RewriteRule ^profile/diplom/upload/$ site.php?do=siteProfile&sub=user_profile_diplom_upload [QSA,L]
+	RewriteRule ^profile/upload/remove/$ site.php?do=siteProfile&sub=user_profile_upload_remove [QSA,L]
+	RewriteRule ^profile/diplom/upload/remove/$ site.php?do=siteProfile&sub=user_profile_diplom_upload_remove [QSA,L]
+	RewriteRule ^profile-([0-9]+)/$ site.php?do=siteProfile&sub=open_profile&profile_id=$1 [QSA,L]
+	RewriteRule ^profile/album/$ site.php?do=siteProfile&sub=add_file_to_album [QSA,L]
+	RewriteRule ^([a-z]{2})/profile-([0-9]+)/$ site.php?do=siteProfile&set_lang=$1&sub=open_profile&profile_id=$2 [QSA,L]
+
+	RewriteRule ^([a-z]{2})/perfomens/$ site.php?do=siteSearch&set_lang=$1&sub=perfomer_search [QSA,L]
+	RewriteRule ^perfomens/$ site.php?do=siteSearch&sub=perfomer_search [QSA,L]
+
+	RewriteRule ^([a-z]{2})/perevodchik/$ site.php?do=siteSearch&set_lang=$1&sub=perfomer_search&user_type=1 [QSA,L]
+	RewriteRule ^([a-z]{2})/prepodavatel/$ site.php?do=siteSearch&set_lang=$1&sub=perfomer_search&user_type=2 [QSA,L]
+	RewriteRule ^([a-z]{2})/gid/$ site.php?do=siteSearch&set_lang=$1&sub=perfomer_search&user_type=3 [QSA,L]
+	RewriteRule ^perevodchik/$ site.php?do=siteSearch&sub=perfomer_search&user_type=1 [QSA,L]
+	RewriteRule ^prepodavatel/$ site.php?do=siteSearch&sub=perfomer_search&user_type=2 [QSA,L]
+	RewriteRule ^gid/$ site.php?do=siteSearch&sub=perfomer_search&user_type=3 [QSA,L]
+
+	RewriteRule ^city-load/$ site.php?do=siteProfile&sub=load_city_by_country [QSA,L]
+	RewriteRule ^book-load/$ site.php?do=siteHelper&sub=load_book_by_id [QSA,L]
+	RewriteRule ^search-writer/$ site.php?do=siteSearch&sub=search_writer [QSA,L]
+	RewriteRule ^metro-load/$ site.php?do=siteSearch&sub=load_metro_by_city [QSA,L]
+	RewriteRule ^lets-be-friends/$ site.php?do=siteFriends&sub=friends_add [QSA,L]
+	RewriteRule ^add_reklama/$ ?do=ajax&sub=add_reklama [QSA,L]
+
+	RewriteRule ^perfomers/$ site.php?do=siteSearch&sub=perfomer_search [QSA,L]
+	RewriteRule ^([a-z]{2})/perfomers/$ site.php?do=siteSearch&sub=perfomer_search&set_lang=$1 [QSA,L]
+
+	RewriteRule ^bank_resume/$ site.php?do=siteResume&sub=resume_search [QSA,L]
+	RewriteRule ^resume/$ site.php?do=siteResume&sub=resume [QSA,L]
+	RewriteRule ^resume-([0-9]+)/$ site.php?do=siteResume&sub=resume_open&resume_id=$1 [QSA,L]
+	RewriteRule ^resume-([0-9]+)/print/$ site.php?do=siteResume&sub=resume_print&resume_id=$1 [QSA,L]
+	RewriteRule ^resume/deny-([0-9]+)/$ site.php?do=siteResume&sub=resume_deny&respons_id=$1 [QSA,L]
+	RewriteRule ^resume/accept-([0-9]+)/$ site.php?do=siteResume&sub=resume_accept&respons_id=$1 [QSA,L]
+	RewriteRule ^resume/album/$ site.php?do=siteResume&sub=add_file_to_album [QSA,L]
+	RewriteRule ^resume/update-([0-9]+)/$ site.php?do=siteResume&sub=resume_update&resume_id=$1 [QSA,L]
+	RewriteRule ^resume/print-([0-9]+)/$ site.php?do=siteResume&sub=resume_print&resume_id=$1 [QSA,L]
+	RewriteRule ^resume-([0-9]+)/open/$ site.php?do=siteResume&sub=resume_status&resume_id=$1&resume_status=1 [QSA,L]
+	RewriteRule ^resume-([0-9]+)/close/$ site.php?do=siteResume&sub=resume_status&resume_id=$1&resume_status=0 [QSA,L]
+	RewriteRule ^resume-([0-9]+)/delete/$ site.php?do=siteResume&sub=resume_delete&resume_id=$1 [QSA,L]
+	RewriteRule ^resume/access/$ site.php?do=siteResume&sub=resume_access&resume_id=$1 [QSA,L]
+
+	RewriteRule ^bank_vakansiy/$ site.php?do=siteJobs&sub=jobs_search [QSA,L]
+	RewriteRule ^jobs/$ site.php?do=siteJobs&sub=jobs [QSA,L]
+	RewriteRule ^jobs/respons/$ site.php?do=siteJobs&sub=jobs_access [QSA,L]
+	RewriteRule ^jobs/edit-([0-9]+)/$ site.php?do=siteJobs&sub=jobs&jobs_id=$1 [QSA,L]
+	RewriteRule ^jobs/update-([0-9]+)/$ site.php?do=siteJobs&sub=jobs_update&jobs_id=$1 [QSA,L]
+	RewriteRule ^jobs/print-([0-9]+)/$ site.php?do=siteJobs&sub=jobs_print&jobs_id=$1 [QSA,L]
+	RewriteRule ^jobs-([0-9]+)/$ site.php?do=siteJobs&sub=jobs_open&jobs_id=$1 [QSA,L]
+	RewriteRule ^jobs-([0-9]+)/open/$ site.php?do=siteJobs&sub=jobs_status&jobs_id=$1&jobs_status=1 [QSA,L]
+	RewriteRule ^jobs-([0-9]+)/close/$ site.php?do=siteJobs&sub=jobs_status&jobs_id=$1&jobs_status=0 [QSA,L]
+	RewriteRule ^jobs-([0-9]+)/delete/$ site.php?do=siteJobs&sub=jobs_delete&jobs_id=$1 [QSA,L]
+	RewriteRule ^jobs/deny-([0-9]+)/$ site.php?do=siteJobs&sub=jobs_deny&respons_id=$1 [QSA,L]
+	RewriteRule ^jobs/accept-([0-9]+)/$ site.php?do=siteJobs&sub=jobs_accept&respons_id=$1 [QSA,L]
+
+	RewriteRule ^customers-partners/$ site.php?do=siteFriends&sub=friends_list [QSA,L]
+	RewriteRule ^briefcase/$ site.php?do=siteBriefcase&sub=briefcase_list [QSA,L]
+
+	RewriteRule ^bank_zakazov/$ site.php?do=siteOrder&sub=order_search [QSA,L]
+	RewriteRule ^order/$ site.php?do=siteOrder&sub=order_work [QSA,L]
+	RewriteRule ^order/edit-([0-9]+)/$ site.php?do=siteOrder&sub=order_work&order_id=$1 [QSA,L]
+	RewriteRule ^order/delete-([0-9]+)/$ site.php?do=siteOrder&sub=order_delete&order_id=$1 [QSA,L]
+	RewriteRule ^order-([0-9]+)/$ site.php?do=siteOrder&sub=order_open&order_id=$1 [QSA,L]
+	RewriteRule ^order/open-([0-9]+)/$ site.php?do=siteOrder&sub=order_status&order_id=$1&order_status=1 [QSA,L]
+	RewriteRule ^order/close-([0-9]+)/$ site.php?do=siteOrder&sub=order_status&order_id=$1&order_status=0 [QSA,L]
+	RewriteRule ^order/complite-([0-9]+)/$ site.php?do=siteOrder&sub=order_close&order_id=$1 [QSA,L]
+	RewriteRule ^order/accept-([0-9]+)/$ site.php?do=siteOrder&sub=order_accept&respons_id=$1 [QSA,L]
+	RewriteRule ^order/deny-([0-9]+)/$ site.php?do=siteOrder&sub=order_deny&respons_id=$1 [QSA,L]
+	RewriteRule ^order/respons-([0-9]+)/$ site.php?do=siteOrder&sub=order_respons&order_id=$1 [QSA,L]
+	RewriteRule ^order$ site.php?do=siteSearch&sub=search_writer [QSA,L]
+
+	RewriteRule ^message/$ site.php?do=siteMessage&sub=message_search [QSA,L]
+	RewriteRule ^message/upload/$ site.php?do=siteMessage&sub=message_upload [QSA,L]
+	RewriteRule ^message/reload/$ site.php?do=siteMessage&sub=message_reload [QSA,L]
+	RewriteRule ^message/more/$ site.php?do=siteMessage&sub=message_more [QSA,L]
+
+	RewriteRule ^billing/$ site.php?do=siteBilling&sub=work [QSA,L]
+	RewriteRule ^billing/pay/$ site.php?do=siteBilling&sub=try_pay [QSA,L]
+
+	RewriteRule ^billing/pay/paypal_return/$ site.php?do=siteBilling&sub=paypal_info [QSA,L]
+	RewriteRule ^billing/pay/sber_return/$ site.php?do=siteBilling&sub=sber_info [QSA,L]
+
+	RewriteRule ^billing/card/work/$ site.php?do=siteBilling&sub=card_work [QSA,L]
+
+	RewriteRule ^writer-document/([0-9]+)/(.*)$ uploads$1/$2 [QSA,L]
+	RewriteRule ^translations/$ site.php?do=siteTranslations&sub=translations_list [QSA,L]
+	RewriteRule ^translations/document-([0-9]+)/$ site.php?do=siteTranslations&sub=translations_open&document_id=$1 [QSA,L]
+	RewriteRule ^translations/document-([0-9]+)/attach/(.*)$ site.php?do=siteTranslations&sub=translations_attach&document_id=$1&file=$2 [QSA,L]
+
+	RewriteRule ^search$ site.php?do=siteSearch&sub=search_main [QSA,L]
+	RewriteRule ^search/type-([0-9]+)/$ site.php?do=siteSearch&sub=search_main&search_type=$1 [QSA,L]
+
+	
+	RewriteRule ^writer/$ writer.php
+	RewriteRule ^writer/auth.php$ auth.php
+
+	RewriteRule \.(ico)$ - [NC,L]
+
+	DirectoryIndex index.php
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule .* index.php [L]
+</IfModule>
