@@ -248,7 +248,6 @@
 </section>
 
 <div class="clearfix"></div>
-
 <section class="workers">
 	<div class="container">
 		<div class="sky-carousel">
@@ -289,7 +288,9 @@
 									</h3>
 								</div>
 								<p class="date-news">{{ news.page_add }}</p>
-								<a href="{{ HOST_NAME }}/{{ news.page_alias|escape|stripslashes }}"><img src="{{ ABS_PATH }}?thumb={{news.page_preview_site}}&width=235&height=156" alt="" class=""></a>
+								<a href="{{ HOST_NAME }}/{{ news.page_alias|escape|stripslashes }}">
+								<!--img src="{{ ABS_PATH }}?thumb={{news.page_preview_site}}&width=235&height=156" alt="" class=""></a-->
+								<img src="{{ ABS_PATH }}?thumb=uploads/no-preview-available.png&width=235&height=156" alt="" class=""></a>
 							</div>
 						</div>
 					{% endfor %}
@@ -312,7 +313,9 @@
 									</h3>
 								</div>
 								<p class="date-news">{{ news.page_add }}</p>
-								<a href="{{ HOST_NAME }}/{{ news.page_alias|escape|stripslashes }}"><img src="{{ ABS_PATH }}?thumb={{news.page_preview_site}}&width=235&height=156" alt="" class=""></a>
+								<a href="{{ HOST_NAME }}/{{ news.page_alias|escape|stripslashes }}">
+								<!--img src="{{ ABS_PATH }}?thumb={{news.page_preview_site}}&width=235&height=156" alt="" class=""></a-->
+								<img src="{{ ABS_PATH }}?thumb=uploads/no-preview-available.png&width=235&height=156" alt="" class=""></a>
 							</div>
 						</div>
 					{% endfor %}

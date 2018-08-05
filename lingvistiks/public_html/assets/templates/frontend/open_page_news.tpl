@@ -11,7 +11,7 @@
 			<div class="col-md-12">
 				<div class="news-item">
 					{% if page_info.page_preview %}
-					<img src="{{ ABS_PATH }}?thumb={{ page_info.page_preview_site }}&width=600&height=450" alt="" class="pull-right">
+					<!--img src="{{ ABS_PATH }}?thumb={{ page_info.page_preview_site }}&width=600&height=450" alt="" class="pull-right"-->
 					{% endif %}
 
 					<h1>{{ page_info.page_title|escape|stripslashes }} <span class="pull-right">{{ page_info.page_add }}</span></h1>
@@ -30,7 +30,7 @@
 				{% endif %}
 			</div>
 
-			<div class="{% if page_info.page_youtube %}col-md-9{% else %}text-center col-md-12{% endif %}">
+			<!--div class="{% if page_info.page_youtube %}col-md-9{% else %}text-center col-md-12{% endif %}">
 				{% if photos %}
 					<div class="accordian">
 						<ul class="list-unstyled">
@@ -42,7 +42,7 @@
 						</ul>
 					</div>
 				{% endif %}
-			</div>
+			</div-->
 
 		</div>
 	</div>
