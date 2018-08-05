@@ -209,6 +209,7 @@ class siteAuth {
 
 		$email_body = twig::fetch('mail_register.tpl');
 		$email_body = str_replace("%PASS%", $user_password, $email_body);
+		$email_body = str_replace("%LOGIN%", $user_email, $email_body);
 		$email_body = str_replace("%HOST%", HOST_NAME, $email_body);
 		$email_body = str_replace("%LINK%",
 							HOST_NAME	. "/register/confirm/"
