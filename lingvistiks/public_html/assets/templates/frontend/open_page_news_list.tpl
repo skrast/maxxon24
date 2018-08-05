@@ -12,14 +12,16 @@
 
 				{% for news in news_list %}
 					<div class="news-in-item">
+					<!-- div style="display:none"> {{ news.page_preview_site }}</div -->
 						<div class="media">
 							<p class="news-in-date">{{ news.page_add }}</p>
 							<a class="pull-left" href="{{ HOST_NAME }}/{{ news.page_alias|escape|stripslashes }}">
-								<img class="media-object" src="{{ ABS_PATH }}?thumb={{news.page_preview_site}}&width=214&height=143">
+								<!--img class="media-object" src="{{ ABS_PATH }}?thumb={{news.page_preview_site}}&width=214&height=143"-->
+								<img class="media-object" src="{{ ABS_PATH }}?thumb=uploads/no-preview-available.png&width=214&height=143">
 							</a>
 							<div class="media-body">
 								<h4 class="media-heading"><a href="{{ HOST_NAME }}/{{ news.page_alias|escape|stripslashes }}">{{ news.page_title|escape|stripslashes|truncate(100) }}</a></h4>
-								<p>{{ news.page_text|striptags|truncate(400) }}</p>
+								<!--p>{{ news.page_text|striptags|truncate(400) }}</p-->
 							</div>
 						</div>
 					</div>
