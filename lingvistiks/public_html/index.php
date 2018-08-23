@@ -6,7 +6,6 @@ header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Expires: " . date("r"));
 
 require_once(BASE_DIR . '/app/helper/init.php');
-
 frontend::check_base();
 site::bild_front();
 ?>

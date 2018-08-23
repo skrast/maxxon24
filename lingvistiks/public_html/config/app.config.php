@@ -72,5 +72,11 @@
 		'app_email_reg' => 'reg@maxxon24.ru',
 		'app_email_info' => 'info@maxxon24.ru',
 		'app_email_support' => 'support@maxxon24.ru',
+	    'app_city_order' => [
+	        'city_id' => [
+	            151 => -2,
+	            682 => -1,
+	        ]	        
+	    ]
 	];
 ?>

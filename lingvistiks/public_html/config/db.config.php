@@ -3,16 +3,16 @@
 		'app_database' => [
 			'master' => 2,
 			'1' => [
-				'dbhost' => 'localhost',
+				'dbhost' => '127.0.0.1',
 				'dbuser' => 'root',
 				'dbpass' => '123456789',
 				'dbname' => 'writer',
 				'dbpref' => 'writer',
 			],
 			'2' => [
-				'dbhost' => 'localhost',
+				'dbhost' => '127.0.0.1',
 				'dbuser' => 'cj27386_maxxon',
-				'dbpass' => '23FD3gmf',
+				'dbpass' => 'mx24MX24$$',
 				'dbname' => 'cj27386_maxxon',
 				'dbpref' => 'writer',
 			],

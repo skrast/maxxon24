@@ -16,7 +16,7 @@
                     <select class="form-control selectpicker" name="user_city" data-default="{{ lang.lk_city }}" data-live-search="true">
                         <option value="">{{ lang.lk_city }}</option>
                         {% for city in city_list %}
-                            <option value="{{ city.id|escape|stripslashes }}" {% if city.id == REQUEST.user_city %}selected{% endif %}>{{ city.title|escape|stripslashes }}</option>
+                            <option bla="{{ city.ord }}" value="{{ city.id|escape|stripslashes }}" {% if city.id == REQUEST.user_city %}selected{% endif %}>{{ city.title|escape|stripslashes }}</option>
                         {% endfor %}
                     </select>
                 </div>

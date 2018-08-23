@@ -178,10 +178,14 @@ class RobotLoader
 			$files[$info['file']]['classes'][] = $class;
 		}
 
-		$this->classes = [];
+		$this->classes = []; $loaded = [];
 		foreach ($this->scanPaths as $path) {
 			foreach (is_file($path) ? [new SplFileInfo($path)] : $this->createFileIterator($path) as $file) {
-				$file = $file->getPathname();
+			    $file = str_replace('\\', '/', $file->getPathname());
+				if (in_array( $file, $loaded)) 
+				    continue;
+				else 
+				    array_push($loaded, $file); 
 				if (isset($files[$file]) && $files[$file]['time'] == filemtime($file)) {
 					$classes = $files[$file]['classes'];
 				} else {

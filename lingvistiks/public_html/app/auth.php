@@ -55,7 +55,7 @@ class auth {
 		$auth = md5($_SERVER['HTTP_USER_AGENT'].md5($row->id));
 		$sql = "DELETE FROM " . DB::$db_prefix . "_users_session WHERE `hash`='" . addslashes($auth) . "'";
 		DB::query($sql);
-		$sql = "INSERT INTO " . DB::$db_prefix . "_users_session (`user_id`,`hash`,`ip`,`agent`,`last_activ`) values ('" . $row->id . "','" . addslashes($auth) . "','','" . addslashes($_SERVER['HTTP_USER_AGENT']) . "','" . time() . "')";
+		$sql = "INSERT INTO " . DB::$db_prefix . "_users_session (`user_id`,`hash`,`ip`,`agent`,`last_activ`) values ('" . $row->id . "','" . addslashes($auth) . "',0,'" . addslashes($_SERVER['HTTP_USER_AGENT']) . "','" . time() . "')";
 		DB::query($sql);
 		@setcookie('auth', $auth, $expire, session::$cookie_path, $cookie_domain, 0, 1);
 

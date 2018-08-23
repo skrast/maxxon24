@@ -59,34 +59,45 @@ function city_by_lang($country, $clear_cache='') {
 		ORDER BY city_id ASC
 	", $clear_cache);
 
-	$city_list = [];
+	$city_list = []; $megapolises= []; 	$custom_order = config::app("app_city_order");
 	foreach ($sql as $row) {
 		$row->city_title = unserialize($row->city_title);
 
+		if ($custom_order['city_id'] && $custom_order['city_id'][$row->city_id]) {
+		    
+		    $megapolises[$row->city_title[$user_lang]] = [
+		        "id"=>$row->city_id,
+		        "title"=>$row->city_title[$user_lang],
+		        "utm"=>$row->city_utm,
+		        "ord"=>$custom_order['city_id'][$row->city_id],
+		    ];
+		    
+		} else
+		
 		$city_list[$row->city_title[$user_lang]] = [
 			"id"=>$row->city_id,
 			"title"=>$row->city_title[$user_lang],
 			"utm"=>$row->city_utm,
+		    "ord" => $row->city_id
 		];
 	}
 
-	ksort($city_list);
+	//ksort($city_list);
+	uasort($megapolises, function ($t1, $t2) {return $t1["ord"] <=> $t2["ord"];});
+	uasort($city_list, function ($t1, $t2) {return $t1["title"] <=> $t2["title"];});
+	
+	
 	$temp = $city_list;
-
-	/*usort($city_list, function($a, $b){
-		return strnatcmp($a['title'], $b['title']);
-	});
-
-	$temp = [];
-	foreach ($city_list as $value) {
-		$temp[$value['title']] = $value;
-	}*/
-
 	$city_list = [];
+	
+	foreach($megapolises as $te) {
+	    $city_list[$te['id']] = $te;
+	}
+	
 	foreach($temp as $te) {
 		$city_list[$te['id']] = $te;
 	}
-
+    
 	return $city_list;
 }
 
