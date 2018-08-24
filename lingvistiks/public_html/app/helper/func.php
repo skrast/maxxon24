@@ -27,8 +27,11 @@ function country_by_lang($clear_cache='') {
 		];
 	}
 
-	ksort($city_list);
+	//ksort($city_list);
 	$temp = $country_list;
+	
+	uasort($country_list, function ($t1, $t2) {return $t1["title"] <=> $t2["title"];});
+	
 
 	/*usort($country_list, function($a, $b){
 		return strnatcmp($a['title'], $b['title']);
@@ -39,10 +42,10 @@ function country_by_lang($clear_cache='') {
 		$temp[$value['title']] = $value;
 	}*/
 
-	$country_list = [];
-	foreach($temp as $te) {
-		$country_list[$te['id']] = $te;
-	}
+	//$country_list = [];
+	//foreach($temp as $te) {
+	//	$country_list[$te['id']] = $te;
+	//}
 
 	return $country_list;
 }
