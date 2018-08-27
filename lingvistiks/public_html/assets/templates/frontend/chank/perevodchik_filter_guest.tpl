@@ -3,8 +3,8 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <select class="form-control selectpicker load_select" name="user_country" data-target="user_city" data-live-search="true">
-                            <option value="">{{ lang.lk_country }}</option>
+                        <select class="form-control selectpicker load_select" name="user_country" data-target="user_city" data-live-search="true" data-live-search-style="startsWith">
+                            <option data-hidden="true" value="" disable>{{ lang.lk_country }}</option>
                             {% for country in country_list %}
                                 <option value="{{ country.id|escape|stripslashes }}" {% if country.id == REQUEST.user_country %}selected{% endif %}>{{ country.title|escape|stripslashes }}</option>
                             {% endfor %}
@@ -13,8 +13,8 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <select class="form-control selectpicker" name="user_city" data-default="{{ lang.lk_city }}" data-live-search="true">
-                            <option value="">{{ lang.lk_city }}</option>
+                        <select class="form-control selectpicker" name="user_city" data-default="{{ lang.lk_city }}" data-live-search="true" data-live-search-style="startsWith">
+                            <option data-hidden="true" value="" disable>{{ lang.lk_city }}</option>
                             {% for city in city_list %}
                                 <option value="{{ city.id|escape|stripslashes }}" {% if city.id == REQUEST.user_city %}selected{% endif %}>{{ city.title|escape|stripslashes }}</option>
                             {% endfor %}
@@ -25,23 +25,23 @@
         </div>
         <div class="col-md-6">
             <div class="row">
-                <div class="col-md-4">
+                <!--div class="col-md-4">
                     <p><strong>{{ lang.lk_lang_var }}</strong></p>
-                </div>
-                <div class="col-md-4 left-pad-0">
+                </div-->
+                <div class="col-md-6 left-pad-0">
                     <div class="form-group">
-                        <select class="form-control selectpicker" name="lang_from_temp">
-                            <option value="">{{ lang.lk_lang_1 }}</option>
+                        <select class="form-control selectpicker" name="lang_from_temp" data-live-search="true" data-live-search-style="startsWith">
+                            <option data-hidden="true" value="" disable>{{ lang.lk_lang_1 }}</option>
                             {% for lang in lang_list %}
                                 <option value="{{ lang.id }}" {% if lang.id == REQUEST.lang_from_temp or lang.id == REQUEST.lang_from_temp2 %}selected{% endif %}>{{ lang.title|escape|stripslashes }}</option>
                             {% endfor %}
                         </select>
                     </div>
                 </div>
-                <div class="col-md-4 left-pad-0">
+                <div class="col-md-6 left-pad-0">
                     <div class="form-group">
-                        <select class="form-control selectpicker" name="lang_to_temp">
-                            <option value="">{{ lang.lk_lang_2 }}</option>
+                        <select class="form-control selectpicker" name="lang_to_temp" data-live-search="true" data-live-search-style="startsWith">
+                            <option data-hidden="true" value="" disable>{{ lang.lk_lang_2 }}</option>
                             {% for lang in lang_list %}
                                 <option value="{{ lang.id }}" {% if lang.id == REQUEST.lang_to_temp or lang.id == REQUEST.lang_to_temp2 %}selected{% endif %}>{{ lang.title|escape|stripslashes }}</option>
                             {% endfor %}
@@ -54,6 +54,12 @@
 
     {% if not 0 == REQUEST.user_type %}
     <div class="collapse" id="demo">
+	<script>
+	$(function () {
+		$("button[class='btn btn-link btn-collapse']").parent().prepend("<span class=\"label\">{{ lang.search_more_filters }}</span>");	
+	});
+	</script>
+    
         <div class="row">
 
             <div class="col-md-6">
@@ -110,7 +116,7 @@
             <div class="col-md-4">
                 <div class="type-translate {% if REQUEST.user_type == 1 %}{% else %}hidden{% endif %}">
                     <select class="form-control selectpicker" name="serv_theme">
-                        <option value="">{{ lang.lk_info_theme }}</option>
+                        <option data-hidden="true" value="" disable>{{ lang.lk_info_theme }}</option>
                         {% for theme in theme_list %}
                             <option value="{{ theme.id }}" {% if theme.id == REQUEST.serv_theme %}selected{% endif %}>{{ theme.title|escape|stripslashes }}</option>
                         {% endfor %}
