@@ -1,7 +1,8 @@
 <?php
 $lang = [
+    'page_middle_var_for_all' => 'ПРЕИМУЩЕСТВА ПРОФЕССИОНАЛЬНОЙ СОЦИАЛЬНОЙ СЕТИ MAXXON',
 	'page_middle_var_for_owner' => 'Для заказчика',
-	'page_middle_var_for_owner_1' => 'ОПТИМАЛЬНЫЕ РАСЦЕНКИ',
+	'page_middle_var_for_all_optima' => 'ОПТИМАЛЬНЫЕ РАСЦЕНКИ',
 	'page_middle_var_for_owner_11' => '',
 	'page_middle_var_for_owner_2' => 'ОПЕРАТИВНОСТЬ',
 	'page_middle_var_for_owner_21' => '',
@@ -28,18 +29,19 @@ $lang = [
 	'page_middle_var_for_responsible_6' => 'УДОБНЫЙ СЕРВИС',
 	'page_middle_var_for_responsible_61' => '',
 
-	'page_middle_var_for_owner_1_desc' => 'Отсутствие посредника при работе с исполнителем',
-	'page_middle_var_for_owner_2_desc' => 'Моментальный глобальный поиск исполнителя по любому из направлений работы платформы',
-	'page_middle_var_for_owner_3_desc' => '',
-	'page_middle_var_for_owner_4_desc' => 'Удобный поиск сотрудников для частичной или полной занятости',
-	'page_middle_var_for_owner_5_desc' => 'Наличие объективного рейтинга зарегистрированных исполнителей',
-	'page_middle_var_for_owner_6_desc' => 'Круглосуточная поддержка пользователей платформы',
+	'page_middle_var_for_all_global'   => 'Моментальный поиск исполнителя по любой категории услуг в любой точке мира',
+	'page_middle_var_for_all_hidden_payments' => ' Отсутствие скрытых платежей',
+	'page_middle_var_for_all_search'   => 'Удобный поиск сотрудников для частичной или полной занятости',
+	'page_middle_var_for_all_support'  => 'Круглосуточная поддержка пользователей платформы',
+    'page_middle_var_for_all_vacancies' => 'Банк вакансий и резюме для частичной и полной занятости',
+    'page_middle_var_for_all_rating'    => 'Объективный рейтинг исполнителей и заказчиков',
 
+    'page_middle_var_for_all_fastlink'  => 'Отсутствие  посредника  между исполнителем и заказчиком',
+    'page_middle_var_for_owner_5_desc' => 'Наличие объективного рейтинга зарегистрированных пользователей',
+    
 	'page_middle_var_for_owner_11_desc' => 'Отсутствие посредника при работе с заказчиком',
-	'page_middle_var_for_owner_22_desc' => 'Оперативный поиск партнеров для совместного предоставления услуги',
 	'page_middle_var_for_owner_33_desc' => 'Наличие возможности находить работу и зарабатывать, постоянно перемещаясь и путешествуя',
 	'page_middle_var_for_owner_44_desc' => 'Максимально эффективное планирование рабочего времени',
-	'page_middle_var_for_owner_55_desc' => 'Наличие объективного рейтинга зарегистрированных заказчиков',
 	'page_middle_var_for_owner_66_desc' => 'Круглосуточная поддержка пользователей платформы',
 ];
 ?>

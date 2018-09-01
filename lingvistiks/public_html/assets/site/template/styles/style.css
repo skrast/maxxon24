@@ -244,6 +244,11 @@ section.nav ul ul li a:hover {
   background: #016074;
   border-left: 25px solid #d17721;
 }
+section.nav ul ul li.active {
+  color: #fff;
+  background: #016074;
+  border-left: 25px solid #d17721;
+}
 
 section.nav ul ul {
   display: none;
@@ -404,8 +409,8 @@ section.nav ul li:hover > ul {
 /* Start.Registration.Styles */
 
 .advantages {
-  min-height: 500px;
-  padding: 50px 0;
+  min-height: 250px;
+  padding: 10px 0;
   background: #ffffff;
 }
 
@@ -472,7 +477,7 @@ section.nav ul li:hover > ul {
 }
 
 .media .hidden-img {
-  margin-top: 5px;
+  margin-top: 0px;
 }
 
 .advantages .media.work .hidden-img,
@@ -481,17 +486,19 @@ section.nav ul li:hover > ul {
   margin-top: 10px;
 }
 
-.media.servis h4 {
+.media.servis,
+.media.custom h4 {
   line-height: 22px;
 }
 
 .advantages .media.paperplane .hidden-elem,
 .advantages .media.world .hidden-elem,
-.advantages .media.servis .hidden-elem {
+.advantages .media.servis .hidden-elem  
+{
   display: none;
   position: absolute;
   z-index: 9;
-  width: 140%;
+  width: 100%;
   margin: 0;
   float: left;
   left: 35%;
@@ -499,6 +506,22 @@ section.nav ul li:hover > ul {
   padding: 10px 0 0 0;
   overflow: hidden;
 }
+
+.advantages .media.custom .hidden-elem  
+{
+  display: none;
+  position: absolute;
+  z-index: 9;
+  width: 70%;
+  margin: 0;
+  float: left;
+  left: 25%;
+  right: 25%;
+  height: 63px;
+  padding: 10px;
+  overflow: hidden;
+}
+
 
 .advantages .media.work .hidden-elem,
 .advantages .media.rek .hidden-elem,
@@ -521,6 +544,13 @@ section.nav ul li:hover > ul {
   float: right !important;
 }
 
+.advantages .media.custom:hover .hidden-elem p {
+  color: #000;
+  display: block;
+  white-space:normal !important;
+  word-wrap: break-word; 
+}
+
 .advantages .media:hover .hidden-elem p {
   color: #000;
   display: block;
@@ -538,11 +568,22 @@ section.nav ul li:hover > ul {
 .advantages .media.world:hover,
 .advantages .media.servis:hover
  {
-  width: 105%;
+  width: 100%;
   background: #eceef0;
   z-index: 9;
   border-bottom-left-radius: 10px;
   border-top-left-radius: 10px;
+}
+
+.advantages .media.custom:hover
+ {
+  background: #eceef0;
+  z-index: 9;
+  width: 100%;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .advantages .media.work:hover,
@@ -558,7 +599,7 @@ section.nav ul li:hover > ul {
 
 .advantages .media.paperplane:hover:after,
 .advantages .media.world:hover:after,
-.advantages .media.servis:hover:after
+.advantages .media.servis:hover:after,
  {
   content: " ";
   display: block;
@@ -719,7 +760,7 @@ section.nav ul li:hover > ul {
 
 /* Start.News.Style */
 .news {
-  margin-top: 40px;
+  margin-top: 5px;
 }
 
 .item-news .caption {
