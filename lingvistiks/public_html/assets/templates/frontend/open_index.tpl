@@ -30,56 +30,55 @@
 <section class="advantages">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-6">
-				<div class="to-customer">
-					<h2 class="text-uppercase">{{ lang.page_middle_var_for_owner }}</h2>
-					<div class="row">
-						<div class="col-md-6 col-sm-6 col-xs-6">
-							<div class="media paperplane">
+					<h2 class="text-uppercase">{{ lang.page_middle_var_for_all }}</h2>
+
+						<div class="col-md-4 col-sm-8 col-xs-12">
+							<div class="media custom">
 								<img class="pull-left media-object show-img" src="{{ ABS_PATH }}assets/site/template/images/i1.png" alt="">
 								<img class="pull-left media-object hidden-img" src="{{ ABS_PATH }}assets/site/template/images/i1-1.png" alt="">
-								<div class="hidden-elem"><p>{{ lang.page_middle_var_for_owner_1_desc }}</p></div>
+								<div class="hidden-elem"><p>{{ lang.page_middle_var_for_all_hidden_payments }}</p></div>
 								<div class="media-body">
-									<h4 class="media-heading">{{ lang.page_middle_var_for_owner_1 }}</h4>
-									<p>{{ lang.page_middle_var_for_owner_11 }}</p>
+									<h4 class="media-heading">{{ lang.page_middle_var_for_all_optima }}</h4>
+									<p></p>
 								</div>
 							</div>
 						</div>
-						<div class="col-md-6 col-sm-6 col-xs-6">
-							<div class="media work">
+						<div class="col-md-4 col-sm-8 col-xs-12">
+							<div class="media custom">
 								<img class="pull-left media-object show-img" src="{{ ABS_PATH }}assets/site/template/images/i2.png" alt="">
 								<img class="pull-left media-object hidden-img" src="{{ ABS_PATH }}assets/site/template/images/i2-2.png" alt="">
-								<div class="hidden-elem"><p>{{ lang.page_middle_var_for_owner_2_desc }}</p></div>
+								<div class="hidden-elem"><p>{{ lang.page_middle_var_for_all_fastlink }}</p></div>
 								<div class="media-body">
 									<h4 class="media-heading">{{ lang.page_middle_var_for_owner_2 }}</h4>
 									<p>{{ lang.page_middle_var_for_owner_21 }}</p>
 								</div>
 							</div>
 						</div>
-						<div class="col-md-6 col-sm-6 col-xs-6">
-							<div class="media world">
+						<div class="col-md-4 col-sm-8 col-xs-12">
+							<div class="media custom">
 								<img class="pull-left media-object show-img" src="{{ ABS_PATH }}assets/site/template/images/i3.png" alt="">
 								<img class="pull-left media-object hidden-img" src="{{ ABS_PATH }}assets/site/template/images/i3-3.png" alt="">
-								<div class="hidden-elem"><p>{{ lang.page_middle_var_for_owner_3_desc }}</p></div>
+								<div class="hidden-elem"><p>{{ lang.page_middle_var_for_all_global }}</p></div>
 								<div class="media-body">
 									<h4 class="media-heading">{{ lang.page_middle_var_for_owner_3 }}</h4>
 									<p>{{ lang.page_middle_var_for_owner_31 }}</p>
 								</div>
 							</div>
 						</div>
-						<div class="col-md-6 col-sm-6 col-xs-6">
-							<div class="media rek">
+
+						<div class="col-md-4 col-sm-8 col-xs-12">
+							<div class="media custom">
 								<img class="pull-left media-object show-img" src="{{ ABS_PATH }}assets/site/template/images/i4.png" alt="">
 								<img class="pull-left media-object hidden-img" src="{{ ABS_PATH }}assets/site/template/images/i4-4.png" alt="">
-								<div class="hidden-elem"><p>{{ lang.page_middle_var_for_owner_4_desc }}</p></div>
+								<div class="hidden-elem"><p>{{ lang.page_middle_var_for_all_vacancies }}</p></div>
 								<div class="media-body">
 									<h4 class="media-heading">{{ lang.page_middle_var_for_owner_4 }}</h4>
 									<p>{{ lang.page_middle_var_for_owner_41 }}</p>
 								</div>
 							</div>
 						</div>
-						<div class="col-md-6 col-sm-6 col-xs-6">
-							<div class="media servis">
+						<div class="col-md-4 col-sm-8 col-xs-12">
+							<div class="media custom">
 								<img class="pull-left media-object show-img" src="{{ ABS_PATH }}assets/site/template/images/i5.png" alt="">
 								<img class="pull-left media-object hidden-img" src="{{ ABS_PATH }}assets/site/template/images/i5-5.png" alt="">
 								<div class="hidden-elem"><p>{{ lang.page_middle_var_for_owner_5_desc }}</p></div>
@@ -89,30 +88,19 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-md-6 col-sm-6 col-xs-6">
-							<div class="media krug">
+						<div class="col-md-4 col-sm-8 col-xs-12">
+							<div class="media custom">
 								<img class="pull-left media-object show-img" src="{{ ABS_PATH }}assets/site/template/images/i6.png" alt="">
 								<img class="pull-left media-object hidden-img" src="{{ ABS_PATH }}assets/site/template/images/i6-6.png" alt="">
-								<div class="hidden-elem"><p>{{ lang.page_middle_var_for_owner_6_desc }}</p></div>
+								<div class="hidden-elem"><p>{{ lang.page_middle_var_for_all_support }}</p></div>
 								<div class="media-body">
 									<h4 class="media-heading">{{ lang.page_middle_var_for_owner_6 }}</h4>
-									<p>{{ lang.page_middle_var_for_owner_61 }}</p>
+									<p>{{ lang.page_middle_var_for_owner_6_desc }}</p>
 								</div>
 							</div>
 						</div>
-						{% if not SESSION.user_id %}
-						<div class="col-md-offset-2 col-md-8">
-							<button class="btn btn-default btn-block change_reg" data-type="1" data-toggle="modal" data-target="#registration">{{ lang.page_reg_btn }}</button>
-						</div>
-						{% endif %}
-					</div>
-				</div>
-			</div>
-			<div class="col-md-6">
-				<div class="to-isp">
-					<h2 class="text-uppercase">{{ lang.page_middle_var_for_responsible }}</h2>
-					<div class="row">
-						<div class="col-md-6 col-sm-6 col-xs-6">
+
+						<!--div class="col-md-4 col-sm-8 col-xs-12">
 							<div class="media paperplane">
 								<img class="pull-left media-object show-img" src="{{ ABS_PATH }}assets/site/template/images/z1.png" alt="">
 								<img class="pull-left media-object hidden-img" src="{{ ABS_PATH }}assets/site/template/images/z1-1.png" alt="">
@@ -123,30 +111,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-md-6 col-sm-6 col-xs-6">
-							<div class="media work">
-								<img class="pull-left media-object show-img" src="{{ ABS_PATH }}assets/site/template/images/z2.png" alt="">
-								<img class="pull-left media-object hidden-img" src="{{ ABS_PATH }}assets/site/template/images/z2-2.png" alt="">
-								<div class="hidden-elem"><p>{{ lang.page_middle_var_for_owner_22_desc }}</p></div>
-								<div class="media-body">
-									<h4 class="media-heading">{{ lang.page_middle_var_for_responsible_2 }}</h4>
-									<p>{{ lang.page_middle_var_for_responsible_21 }}</p>
-								</div>
-							</div>
-						</div>
-						<div class="clearfix"></div>
-						<div class="col-md-6 col-sm-6 col-xs-6">
-							<div class="media world">
-								<img class="pull-left media-object show-img" src="{{ ABS_PATH }}assets/site/template/images/z3.png" alt="">
-								<img class="pull-left media-object hidden-img" src="{{ ABS_PATH }}assets/site/template/images/z3-3.png" alt="">
-								<div class="hidden-elem"><p>{{ lang.page_middle_var_for_owner_33_desc }}</p></div>
-								<div class="media-body">
-									<h4 class="media-heading">{{ lang.page_middle_var_for_responsible_3 }}</h4>
-									<p>{{ lang.page_middle_var_for_responsible_31 }}</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6 col-sm-6 col-xs-6">
+						<div class="col-md-4 col-sm-8 col-xs-12">
 							<div class="media krug">
 								<img class="pull-left media-object show-img" src="{{ ABS_PATH }}assets/site/template/images/z4.png" alt="">
 								<img class="pull-left media-object hidden-img" src="{{ ABS_PATH }}assets/site/template/images/z4-4.png" alt="">
@@ -157,19 +122,18 @@
 								</div>
 							</div>
 						</div>
-						<div class="clearfix"></div>
-						<div class="col-md-6 col-sm-6 col-xs-6">
-							<div class="media servis">
-								<img class="pull-left media-object show-img" src="{{ ABS_PATH }}assets/site/template/images/z5.png" alt="">
-								<img class="pull-left media-object hidden-img" src="{{ ABS_PATH }}assets/site/template/images/z5-5.png" alt="">
-								<div class="hidden-elem"><p>{{ lang.page_middle_var_for_owner_55_desc }}</p></div>
+						<div class="col-md-4 col-sm-8 col-xs-12">
+							<div class="media work">
+								<img class="pull-left media-object show-img" src="{{ ABS_PATH }}assets/site/template/images/z2.png" alt="">
+								<img class="pull-left media-object hidden-img" src="{{ ABS_PATH }}assets/site/template/images/z2-2.png" alt="">
+								<div class="hidden-elem"><p>{{ lang.page_middle_var_for_owner_22_desc }}</p></div>
 								<div class="media-body">
-									<h4 class="media-heading">{{ lang.page_middle_var_for_responsible_5 }}</h4>
-									<p>{{ lang.page_middle_var_for_responsible_51 }}</p>
+									<h4 class="media-heading">{{ lang.page_middle_var_for_responsible_2 }}</h4>
+									<p>{{ lang.page_middle_var_for_responsible_21 }}</p>
 								</div>
 							</div>
 						</div>
-						<div class="col-md-6 col-sm-6 col-xs-6">
+						<div class="col-md-4 col-sm-8 col-xs-12">
 							<div class="media krug">
 								<img class="pull-left media-object show-img" src="{{ ABS_PATH }}assets/site/template/images/z6.png" alt="">
 								<img class="pull-left media-object hidden-img" src="{{ ABS_PATH }}assets/site/template/images/z6-6.png" alt="">
@@ -180,6 +144,40 @@
 								</div>
 							</div>
 						</div>
+						<div class="col-md-4 col-sm-8 col-xs-12">
+							<div class="media world">
+								<img class="pull-left media-object show-img" src="{{ ABS_PATH }}assets/site/template/images/z3.png" alt="">
+								<img class="pull-left media-object hidden-img" src="{{ ABS_PATH }}assets/site/template/images/z3-3.png" alt="">
+								<div class="hidden-elem"><p>{{ lang.page_middle_var_for_owner_33_desc }}</p></div>
+								<div class="media-body">
+									<h4 class="media-heading">{{ lang.page_middle_var_for_responsible_3 }}</h4>
+									<p>{{ lang.page_middle_var_for_responsible_31 }}</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 col-sm-8 col-xs-12">
+							<div class="media servis">
+								<img class="pull-left media-object show-img" src="{{ ABS_PATH }}assets/site/template/images/z5.png" alt="">
+								<img class="pull-left media-object hidden-img" src="{{ ABS_PATH }}assets/site/template/images/z5-5.png" alt="">
+								<div class="hidden-elem"><p>{{ lang.page_middle_var_for_owner_55_desc }}</p></div>
+								<div class="media-body">
+									<h4 class="media-heading">{{ lang.page_middle_var_for_responsible_5 }}</h4>
+									<p>{{ lang.page_middle_var_for_responsible_51 }}</p>
+								</div>
+							</div>
+						</div-->
+						{% if not SESSION.user_id %}
+						<div class="col-md-offset-2 col-md-8">
+							<button class="btn btn-default btn-block change_reg" data-type="1" data-toggle="modal" data-target="#registration">{{ lang.page_reg_btn }}</button>
+						</div>
+						{% endif %}
+					</div>
+
+			<!--div class="col-md-6">
+				<div class="to-isp">
+					<h2 class="text-uppercase">{{ lang.page_middle_var_for_responsible }}</h2>
+					<div class="row">
+						<div class="clearfix"></div>
 						{% if not SESSION.user_id %}
 						<div class="col-md-offset-2 col-md-8">
 							<button class="btn btn-default btn-block change_reg" data-type="2" data-toggle="modal" data-target="#registration">{{ lang.page_reg_btn }}</button>
@@ -187,15 +185,14 @@
 						{% endif %}
 					</div>
 				</div>
-			</div>
-		</div>
+			</div-->
 	</div>
 	<div class="clearfix"></div>
 </section>
 
 <div class="clearfix"></div>
 
-<section class="services">
+<!-- section class="services">
 	<div class="container">
 		<div class="row mg-0">
 			<div class="col-md-3 pd-0 pl-15 col-sm-3 col-xs-12">
@@ -245,7 +242,7 @@
 			</div>
 		</div>
 	</div>
-</section>
+</section-->
 
 <div class="clearfix"></div>
 <section class="workers">
@@ -297,10 +294,10 @@
 				</div>
 			</div>
 
-			<div class="col-md-2 col-sm-2 hidden-xs">
+			<!-- div class="col-md-2 col-sm-2 hidden-xs">
 				<img src="{{ ABS_PATH }}assets/site/template/images/all-news.jpg" alt="" class="img-responsive img-center">
 				<a href="{{ HOST_NAME }}{{ link_lang_pref }}/news{{ app.URL_SUFF }}" class="all-news">{{ lang.page_news_all }}</a>
-			</div>
+			</div-->
 
 			<div class="col-md-5 col-sm-5 col-xs-12">
 				<div class="row news-items">

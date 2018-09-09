@@ -92,7 +92,9 @@ $lang = [
 	'search_form_date' => 'Даты поиска',
 
 	'search_perfomens_empty' => 'Исполнитель не найден<br><small>Попробуйте изменить параметры поиска</small>',
-
+    'search_orders_empty' => '<small>Данная опция доступна только на тарифах</small><br>ОПТИМА <small>и</small> ПРОФИ<br>',
+    'search_orders_empty_change_subscription' => '<small>Сменить Тариф</small>',
+    
 
 	'search_main_title' => 'Поиск',
 	'search_main_title_placeholder' => 'Поиск',

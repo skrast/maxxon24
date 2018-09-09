@@ -3,6 +3,8 @@ use Respect\Validation\Validator as v;
 use Respect\Validation\Exceptions\ValidationException;
 
 class siteProfile {
+
+
 	static $main_title = [];
 
 	static function user_profile() {
@@ -27,6 +29,7 @@ class siteProfile {
 				self::cropPhoto();
 			}
 
+			
 			if($_REQUEST['save']) {
 				self::saveProfile();
 			}
@@ -442,17 +445,18 @@ class siteProfile {
 
 	static function saveProfile() {
 
-		// справочник по языкам
-		$lang_list = get_book_for_essence(1);
-		// справочник по языкам
-
 		$user_id = (int)$_SESSION['user_id'];
 
 		$user_info = get_user_info($user_id);
 		if(!$user_info) {
 			exit;
 		}
-
+		(new CallBackHelper($profile_info))(ActionEnum::ServicesCreate);
+		
+		// справочник по языкам
+		$lang_list = get_book_for_essence(1);
+		// справочник по языкам
+		
 		// загрузка аватара
 		if($_REQUEST['uploads_photo']) {
 			$photos = "";

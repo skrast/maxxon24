@@ -112,5 +112,6 @@ $lang = [
 	],
 
 	'resume_list' => 'Поиск резюме',
+    'aux_user_resumes_count' => '<small>Чтобы создавать более <strong>3</strong> резюме<br>следует перейти на тариф <strong>ПРОФИ</strong></small>'
 ];
 ?>
