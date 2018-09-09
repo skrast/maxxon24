@@ -89,6 +89,12 @@ class siteJobs {
 		$profile_id = (int)$_SESSION['user_id'];
 		$jobs_id = (int)$_REQUEST['jobs_id'];
 		$profile_info = get_user_info($profile_id);
+		
+		// the job is a new one ?
+		if (!$jobs_id)
+		    // check a user have appropriate acl
+		    if (!(new CallBackHelper($profile_info))(ActionEnum::JobsCreate)) return;
+		    
 
 		if(!$profile_info || !$_SESSION['user_id'] || $profile_info->user_group != 4) {
 			site::error404();
@@ -381,8 +387,7 @@ class siteJobs {
 			twig::assign('perfomens_col', $html);
 
 			// шаблон страницы
-			(new CallBackHelper())(ActionEnum::JobsCreate,'',['user' => get_user_info($_SESSION['user_id'])]);
-			
+			twig::assign('content', twig::fetch('frontend/owner_jobs_open.tpl'));
 		}
 	}
 
@@ -688,7 +693,8 @@ class siteJobs {
 	static function jobs_search() {
 		$profile_id = (int)$_SESSION['user_id'];
 
-		(new CallBackHelper(get_user_info($profile_id)))(ActionEnum::JobsList);
+		// check a user have an appropiate acl
+		if (!(new CallBackHelper(get_user_info($profile_id)))(ActionEnum::JobsList)) return;
 		
 		/*$profile_info = get_user_info($profile_id);
 
@@ -812,7 +818,10 @@ class siteJobs {
 
 			$html = twig::fetch('frontend/chank/perfomens_col.tpl');
 			twig::assign('perfomens_col', $html);
-			
+
+			// шаблон страницы
+			twig::assign('content', twig::fetch('frontend/jobs_list.tpl'));
+		/*}*/
 	}
 
 	static function jobs_access() {
