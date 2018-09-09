@@ -16,6 +16,7 @@
 		<link rel="stylesheet" href="{{ ABS_PATH }}assets/site/assets/bootstrap-v-3.3.2/css/bootstrap.min.css">
 
 		<!-- Main styles -->
+		<link rel="stylesheet" href="{{ ABS_PATH }}assets/css/maxxon.css">
 		<link rel="stylesheet" href="{{ ABS_PATH }}assets/site/template/styles/style.css">
 		<link rel="stylesheet" href="{{ ABS_PATH }}assets/site/template/styles/media.css">
 		<link rel="stylesheet" href="{{ ABS_PATH }}vendor/assets/toastr/toastr.min.css">
@@ -101,11 +102,7 @@
 					<div class="row">
 						<div class="col-md-6 col-sm-6 col-xs-4">
 							<div class="logo">
-								{% if SESSION.user_id %}
-									<a href="{{ HOST_NAME }}/profile/" title="{{ lang.page_name_project }}">
-								{% else %}
 									<a href="{{ HOST_NAME }}" title="{{ lang.page_name_project }}">
-								{% endif %}
 									<img src="{{ ABS_PATH }}assets/site/template/images/logo.png" alt="{{ lang.page_name_project }}">
 								</a>
 							</div>
@@ -208,9 +205,9 @@
 								<li>
 									<div>{{ lang.menu_work }}</div>
 									<ul class="list-unstyled">
-										<li><a {% if SESSION.user_group %}href="{{ HOST_NAME }}/bank_zakazov/"{% else %}href="#" data-toggle="modal" data-target="#login"{% endif %}>{{ lang.menu_order }}</a></li>
-										<li><a {% if SESSION.user_group %}href="{{ HOST_NAME }}/bank_vakansiy/"{% else %}href="#" data-toggle="modal" data-target="#login"{% endif %}>{{ lang.menu_vacancies }}</a></li>
-										<li><a {% if SESSION.user_group %}href="{{ HOST_NAME }}/bank_resume/"{% else %}href="#" data-toggle="modal" data-target="#login"{% endif %}>{{ lang.menu_resume }}</a></li>
+										<li><a {% if SESSION.user_group %}href="{{ HOST_NAME }}/bank_zakazov/"{% else %}href="#" data-toggle="modal" data-target="#registration"{% endif %}>{{ lang.menu_order }}</a></li>
+										<li><a {% if SESSION.user_group %}href="{{ HOST_NAME }}/bank_vakansiy/"{% else %}href="#" data-toggle="modal" data-target="#registration"{% endif %}>{{ lang.menu_vacancies }}</a></li>
+										<li><a {% if SESSION.user_group %}href="{{ HOST_NAME }}/bank_resume/"{% else %}href="#" data-toggle="modal" data-target="#registration"{% endif %}>{{ lang.menu_resume }}</a></li>
 									</ul>
 								</li>
 							</ul>
@@ -227,10 +224,17 @@
 						</div>
 						<div class="col-md-4 text-right">
 							<div class="language">
-								<ul class="list-inline">
+								<!--  ul class="list-inline">
 									{% for lang in lang_array %}
 									<li {% if lang == REQUEST.lang %}class="active"{% endif %}>
 										<a href="{{ HOST_NAME }}/{{ lang|escape|stripslashes }}">{{ lang|escape|stripslashes|default(app.app_lang) }}</a>
+									</li>
+									{% endfor %}
+								</ul-->
+								<ul class="list-inline">
+									{% for key,lang in app_langs %}
+									<li {% if key == SESSION.user_lang %}class="active"{% endif %}>
+										<a href="{{ HOST_NAME }}/{{ key|escape|stripslashes }}">{{ lang|escape|stripslashes|default(app.app_lang) }}</a>
 									</li>
 									{% endfor %}
 								</ul>
@@ -324,6 +328,7 @@
 		<link rel="stylesheet" href="{{ ABS_PATH }}vendor/assets/bootstrap-select/css/bootstrap-select.css">
 
 		<script src="{{ ABS_PATH }}assets/js/site.js"></script>
+		<script src="{{ ABS_PATH }}assets/js/maxxon.js"></script>
 
 		<div class="modal fade" id="ajax_modal" role="dialog">
             <div class="modal-dialog">

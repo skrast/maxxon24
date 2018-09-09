@@ -15,7 +15,7 @@ class site {
 		if(!empty($_REQUEST['set_lang']) && in_array($_REQUEST['set_lang'], config::get_lang())) {
 			$_SESSION['user_lang'] = $_REQUEST['set_lang'];
 		} else {
-			$_SESSION['user_lang'] = '';
+		    $_SESSION['user_lang'] = config::app("app_lang");
 		}
 
 		// сохранение меток
@@ -39,6 +39,7 @@ class site {
 			$lang_array[] = ($lang == config::app("app_lang")) ? "" : $lang;
 		}
 		\twig::assign('lang_array', $lang_array);
+		\twig::assign('app_langs', config::app("app_langs"));
 		// доступные языковые версии
 
 		// подключаем меню навигации
@@ -57,7 +58,6 @@ class site {
 		if(class_exists($do)) {
 		    if(method_exists($do, $sub)) {
 		        $do::$sub();
-
 				// title
 				if(property_exists($do, 'main_title')) {
 					self::bild_title($do::$main_title);
@@ -353,10 +353,10 @@ class site {
 				" . DB::$db_prefix . "_module_page
 			WHERE
 				page_alias = '" . (!empty ($get_url) ? addslashes($get_url) : "/") . "'
-				AND page_status = '1' ".($page_lang ? " AND page_lang = '".addslashes($page_lang)."' " : "")."
+				AND page_status = '1'
 			LIMIT 1
 		");
-
+		//".($page_lang ? " AND page_lang = '".addslashes($page_lang)."' " : "")."
 		if ($page_info)	{
 			$_GET['id']  = $_REQUEST['id']  = $page_info->page_id;
 

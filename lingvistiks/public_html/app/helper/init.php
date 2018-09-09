@@ -93,6 +93,8 @@ set_host();
 // func
 require_once(BASE_DIR . '/app/helper/func.php');
 // func
+require_once(BASE_DIR . '/app/helper/callbacks.php');
+
 
 // composer loader
 require_once BASE_DIR.'/vendor/loader/vendor/autoload.php';

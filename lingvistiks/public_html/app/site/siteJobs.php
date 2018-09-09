@@ -381,7 +381,8 @@ class siteJobs {
 			twig::assign('perfomens_col', $html);
 
 			// шаблон страницы
-			twig::assign('content', twig::fetch('frontend/owner_jobs_open.tpl'));
+			(new CallBackHelper())(ActionEnum::JobsCreate,'',['user' => get_user_info($_SESSION['user_id'])]);
+			
 		}
 	}
 
@@ -687,6 +688,8 @@ class siteJobs {
 	static function jobs_search() {
 		$profile_id = (int)$_SESSION['user_id'];
 
+		(new CallBackHelper(get_user_info($profile_id)))(ActionEnum::JobsList);
+		
 		/*$profile_info = get_user_info($profile_id);
 
 		if(!$profile_info) {
@@ -809,10 +812,7 @@ class siteJobs {
 
 			$html = twig::fetch('frontend/chank/perfomens_col.tpl');
 			twig::assign('perfomens_col', $html);
-
-			// шаблон страницы
-			twig::assign('content', twig::fetch('frontend/jobs_list.tpl'));
-		/*}*/
+			
 	}
 
 	static function jobs_access() {

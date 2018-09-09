@@ -74,5 +74,6 @@ $lang = [
 
 	'page_yes' => 'Да',
 	'page_no' => 'Нет',
+    'change_subscription' => '<small>Данная опция доступна на тарифах <strong>ОПТИМА</strong> и <strong>ПРОФИ</strong></small>'
 ];
 ?>

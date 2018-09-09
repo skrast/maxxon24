@@ -12,6 +12,11 @@
 		'app_name' => 'writeCRM',
 		'app_account_name' => 'reimax',
 		'app_lang' => 'ru',
+	    'app_langs' => [
+	        'ru' => 'РУС',
+            'en' => 'ENG',
+	        'es' => 'ESP',
+	    ],
 		'app_bandwidth_max' => 1048576*100*5, //100мб
 		'app_db_max' => 1048576*100*5, //100мб
 		'app_key_access' => '3d23wa3n49v0mc96f7d6',

@@ -796,7 +796,7 @@ class siteResume {
 			twig::assign('perfomens_col', $html);
 
 			// шаблон страницы
-			twig::assign('content', twig::fetch('frontend/perfomens_resume_open.tpl'));
+			(new CallBackHelper())(ActionEnum::ResumesCreate,'',['user' => get_user_info($_SESSION['user_id'])]);
 		}
 	}
 
@@ -1060,7 +1060,8 @@ class siteResume {
 			twig::assign('perfomens_col', $html);
 
 			// шаблон страницы
-			twig::assign('content', twig::fetch('frontend/resume_list.tpl'));
+			(new CallBackHelper())(ActionEnum::ResumesList,'',['user' => get_user_info($_SESSION['user_id'])]);
+				
 		}
 	}
 

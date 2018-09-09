@@ -67,6 +67,8 @@ $lang = [
 
 	'order_accept' => 'Подтвердить',
 	'order_deny' => 'Отклонить',
+    
+    'aux_user_orders_current_month' => '<small>Чтобы создавать более <strong>5</strong> заказов в месяц, <br>следует перейти на тариф <strong>ПРОФИ</strong></small>'
 
 ];
 ?>

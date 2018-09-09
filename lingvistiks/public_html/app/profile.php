@@ -515,7 +515,59 @@ class profile {
 		// скилл
 
 		$profile_info->full_user_id = self::bild_full_user_id($profile_info);
+		
+		//TODO: for the performance sake this value needs to be cached unless changed outside
+		$profile_info->aux_user_orders_current_month = DB::single(
+		    "select count(order_id)  as order_per_month
+				     from ". DB::$db_prefix ."_users_order where order_owner = ".$profile_info->id."
+                     and order_start between
+				     unix_timestamp(date_add(date_add(last_day(current_date),interval 1 day),interval - 1 month)) and
+				     unix_timestamp(last_day(current_date))
+				     group by from_unixtime(order_start,'%Y%m')"
+		    );
+		$profile_info->aux_user_orders_current_month = $profile_info->aux_user_orders_current_month ? $profile_info->aux_user_orders_current_month : 0;
+		/*
+		$profile_info->aux_user_skill_count = DB::single(
+		    "select count(order_id)  as skill_count
+				     from ". DB::$db_prefix ."_users_order where order_owner = ".$profile_info->id."
+                select count(skill_type) as as order_per_month from ". DB::$db_prefix ."_users_skill 
+                where skill_owner = ".$profile_info->id."
+                group by skill_owner"
+		);
+		
+		$profile_info->aux_user_skill_count = $profile_info->aux_user_skill_count ? $profile_info->aux_user_skill_count : 0;
+		*/
+		
+		//TODO: for the performance sake this value needs to be cached unless one changed outside
+		$profile_info->aux_user_jobs_count = DB::single("
+                                    		select count(jobs_id) as jobs_count
+                                    		from ". DB::$db_prefix ."_users_jobs where jobs_owner = ".$profile_info->id."
+                                    		group by jobs_owner"
+		);
+		
+		$profile_info->aux_user_jobs_count = $profile_info->aux_user_jobs_count ? $profile_info->aux_user_jobs_count : 0;
+		
+		//TODO: for the performance sake this value needs to be cached unless one changed outside
+		$profile_info->aux_user_resumes_count = DB::single("
+                                    		select count(resume_id) as resume_count
+                                    		from ". DB::$db_prefix ."_users_resume
+                                    		where resume_owner = ".$profile_info->id."
+                                    		group by resume_owner"
+		    );
+		
+		
+		$profile_info->aux_user_resumes_count = $profile_info->aux_user_resumes_count ? $profile_info->aux_user_resumes_count : 0;
 
+		//TODO: for the performance sake this value needs to be cached unless one changed outside
+		$profile_info->aux_user_service_count = DB::single("
+                                    		select count(serv_id) as service_count
+                                    		from ". DB::$db_prefix ."_users_services
+                                    		where serv_owner = ".$profile_info->id."
+                                    		group by serv_owner"
+		    );
+		
+		$profile_info->aux_user_service_count = $profile_info->aux_user_service_count ? $profile_info->aux_user_service_count : 0;
+		
 		return $profile_info;
 	}
 

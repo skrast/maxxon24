@@ -278,7 +278,7 @@ class siteMessage {
 				message_document = '".(int)$param['document_id']."',
 			";
 		}
-		if($param['parent_id']) {
+		if(isset($param['parent_id'])) {
 			$sql .= "
 				message_parent = '".(int)$param['parent_id']."',
 			";
@@ -292,6 +292,10 @@ class siteMessage {
 			if($param['type']) {
 				$sql .= "
 					message_type = '".(int)$param['type']."',
+				";
+			} else {
+			    $sql .= "
+					message_type = '0',
 				";
 			}
 		}
