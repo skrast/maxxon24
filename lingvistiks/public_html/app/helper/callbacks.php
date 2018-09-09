@@ -53,6 +53,8 @@ class CallBackHelper
         $this->callback = func_get_arg(1);
         $params = func_get_arg(2);
         
+        $result = true;
+        
         if (!$this->user)
             $this->user = !isset($params['user']) ? get_user_info() : $params['user'];
         
@@ -60,126 +62,128 @@ class CallBackHelper
             
             //Orders
             case ActionEnum::OrdersCreate:
-                if ($function)
-                    $function($params);
+                if (is_callable($this->callback))
+                    $result = ($this->callback)($params);
                  else
-                     self::onOrdersCreate($params);
+                    $result = self::onOrdersCreate($params);
             break;
                         
             case ActionEnum::OrdersList:
-                if ($function)
-                    $function($action, $this->user);
+                if (is_callable($this->callback))
+                    $result = ($this->callback)($params);
                 else
-                    self::onOrdersList();
+                    $result = self::onOrdersList($params);
             break;
                         
             case ActionEnum::OrdersEdit:
-                if ($function)
-                    $function($params);
+                if (is_callable($this->callback))
+                    $result = ($this->callback)($params);
                 else
-                    self::onOrdersEdit($params);
+                    $result = self::onOrdersEdit($params);
             break;
                         
             case ActionEnum::OrdersDelete:
-                if ($function)
-                    $function($params);
+                if (is_callable($this->callback))
+                    $result = ($this->callback)($params);
                 else
-                    self::onOrdersDelete($params);
+                    $result = self::onOrdersDelete($params);
             break;
             
             // Jobs            
             case ActionEnum::JobsCreate:
-                if ($function)
-                    $function($params);
+                if (is_callable($this->callback))
+                    $result = ($this->callback)($params);
                 else
-                    self::onJobsCreate($params);
+                    $result = self::onJobsCreate($params);
             break;
                         
             case ActionEnum::JobsList:
-                if ($function)
-                    $function($params);
-                    else
-                        self::onJobsList($params);
+                if (is_callable($this->callback))
+                    $result = ($this->callback)($params);
+                else
+                    $result = self::onJobsList($params);
             break;
                         
             case ActionEnum::JobsEdit:
-                if ($function)
-                    $function($params);
-                    else
-                        self::onOrdersEdit($params);
+                if (is_callable($this->callback))
+                    $result = ($this->callback)($params);
+                else
+                    $result = self::onOrdersEdit($params);
             break;
                         
             case ActionEnum::JobsDelete:
-                if ($function)
-                    $function($params);
-                    else
-                        self::onJobsDelete($params);
+                if (is_callable($this->callback))
+                    $result = ($this->callback)($params);
+                else
+                    $result = self::onJobsDelete($params);
             break;
             // Resumes
             case ActionEnum::ResumesCreate:
-                if ($function)
-                    $function($params);
-                    else
-                        self::onResumesCreate($params);
+                if (is_callable($this->callback))
+                    $result = ($this->callback)($params);
+                else
+                    $result = self::onResumesCreate($params);
             break;
                         
             case ActionEnum::ResumesList:
-                if ($function)
-                    $function($params);
-                    else
-                        self::onResumesList($params);
+                if (is_callable($this->callback))
+                    $result = ($this->callback)($params);
+                else
+                    $result = self::onResumesList($params);
             break;
                         
             case ActionEnum::ResumesEdit:
-                if ($function)
-                    $function($params);
+                if (is_callable($this->callback))
+                    $result = ($this->callback)($params);
                  else
-                    self::onResumesEdit($params);
+                    $result = self::onResumesEdit($params);
            break;
                         
             case ActionEnum::ResumesDelete:
-                if ($function)
-                    $function($params);
+                if (is_callable($this->callback))
+                    $result = ($this->callback)($params);
                 else
-                    self::onResumesDelete($params);
+                    $result = self::onResumesDelete($params);
            break;
                         
            // Services
             case ActionEnum::ServicesCreate:
-                if ($function)
-                    $function($params);
+                if (is_callable($this->callback))
+                    $result = ($this->callback)($params);
                 else
-                    self::onServicesCreate($params);
+                    $result = self::onServicesCreate($params);
             break;
                         
             case ActionEnum::ServicesList:
-                if ($function)
-                    $function($params);
+                if (is_callable($this->callback))
+                    $result = ($this->callback)($params);
                 else
-                    self::onServicesList($params);
+                    $result = self::onServicesList($params);
            break;
                         
             case ActionEnum::ServicesEdit:
-                if ($function)
-                    $function($params);
+                if (is_callable($this->callback))
+                    $result = ($this->callback)($params);
                 else
-                    self::onServicesEdit($params);
-                break;
+                    $result = self::onServicesEdit($params);
+           break;
                         
             case ActionEnum::ServicesDelete:
-                if ($function)
-                    $function($params);
+                if (is_callable($this->callback))
+                    $result = ($this->callback)($params);
                 else
-                    self::onServicesDelete($params);
+                    $result = self::onServicesDelete($params);
             break;
             
             default:
-                if ($function)
-                    $function($params);
+                if (is_callable($this->callback))
+                    $result = ($this->callback)($params);
                 else
                     throw new Exception('Uknown action to handle !');
             break;
         }
+        
+        return $result;
     }
     
     private function render_acl_template(){
@@ -195,9 +199,9 @@ class CallBackHelper
         if (in_array($this->user->user_billing, [1])) {
             twig::assign('message', twig::$lang['change_subscription']);
             $this->render_acl_template();
-        } else {
-            twig::assign('content', twig::fetch('frontend/order_list.tpl'));
-        }
+            return false;
+        } 
+        return true;
     }
     private function onOrdersCreate($params=[]) {
 
@@ -205,6 +209,7 @@ class CallBackHelper
         if (in_array($this->user->user_billing, [1])) {
             twig::assign('message', twig::$lang['change_subscription']);
             $this->render_acl_template();
+            return false;
         } 
         // if a user subscription is optima and he already has 5 orders in the current month;
         else if (
@@ -213,9 +218,10 @@ class CallBackHelper
         {
             twig::assign('message', twig::$lang['aux_user_orders_current_month']);
             $this->render_acl_template();
-        } else {
-            twig::assign('content', twig::fetch('frontend/owner_order_edit.tpl'));
+            return false;
         }
+        
+        return true;
             
     }
     private function onOrdersEdit($params=[]){
@@ -230,17 +236,20 @@ class CallBackHelper
   
         // if it's a user with a basic subscription
         if (in_array($this->user->user_billing, [1])) {
+            twig::assign('message', twig::$lang['change_subscription']);
             $this->render_acl_template();
-        } else {
-            twig::assign('content', twig::fetch('frontend/jobs_list.tpl'));
+            return false;
         }
+        return true;
                
     }
     private function onJobsCreate($params=[]) {
 
         // if it's a user with basic subscription
         if (in_array($this->user->user_billing, [1])) {
+            twig::assign('message', twig::$lang['change_subscription']);
             $this->render_acl_template();
+            return false;
         }
         // if a user subscription is optima and he already has 5 orders in the current month;
         else if (
@@ -249,9 +258,9 @@ class CallBackHelper
         {
             twig::assign('message', twig::$lang['aux_user_jobs_count']);
             $this->render_acl_template();
-        } else {
-            twig::assign('content', twig::fetch('frontend/owner_order_edit.tpl'));
+            return false;
         }
+        return true;
                
     }
     private function onJobsEdit($params=[]) {
@@ -265,18 +274,21 @@ class CallBackHelper
      
         // if it's a user with a basic subscription
         if (in_array($this->user->user_billing, [1])) {
+            twig::assign('message', twig::$lang['change_subscription']);
             $this->render_acl_template();
-        } else {
-            twig::assign('content', twig::fetch('frontend/resume_list.tpl'));
-        }
+            return false;
+        } 
+        
+        return true;
         
     }
     private function onResumesCreate($params=[]) {
         
-
         // if it's a user with basic subscription
         if (in_array($this->user->user_billing, [1])) {
+            twig::assign('message', twig::$lang['change_subscription']);
             $this->render_acl_template();
+            return false;
         }
         // if a user subscription is optima and he already has 3 resumes;
         else if (
@@ -285,11 +297,10 @@ class CallBackHelper
         {
             twig::assign('message', twig::$lang['aux_user_resumes_count']);
             $this->render_acl_template();
-        } else {
-            twig::assign('content', twig::fetch('frontend/perfomens_resume_open.tpl'));
+            return false;
         }
         
-        
+        return true;
     }
     private function onResumesEdit($params=[]) {
         throw new Exception("onResumesEdit not implemented");
@@ -304,21 +315,23 @@ class CallBackHelper
     }
     private function onServicesCreate($params=[]) {
         
-        if (
-            $this->user->user_billing == 1 &&
-            $this->user->aux_user_service_count >= 1)
-        {
-            twig::assign('message', twig::$lang['aux_user_service_count1']);
-            $this->render_acl_template();
-        } else  if (
-            $this->user->user_billing == 2 &&
-            $this->user->aux_user_jobs_count >= 3)
+        
+        if ($this->user->user_billing == 2 &&
+            ($this->user->aux_user_service_count > 3 || $this->user->aux_user_service_count_temp > 3))
         {
             twig::assign('message', twig::$lang['aux_user_service_count3']);
             $this->render_acl_template();
-        } else {
-            twig::assign('content', twig::fetch('frontend/owner_order_edit.tpl'));
+            return false;
+        } else 
+        if ($this->user->user_billing == 1 &&
+            ($this->user->aux_user_service_count > 1 || $this->user->aux_user_service_count_temp > 1))
+        {
+            twig::assign('message', twig::$lang['aux_user_service_count1']);
+            $this->render_acl_template();
+            return false;
         }
+            
+        return true;
     }
     private function onServicesEdit($params=[]) {
         throw new Exception("onServicesEdit not implemented");
@@ -326,7 +339,6 @@ class CallBackHelper
     private function onServicesDelete($params=[]) {
         throw new Exception("onServicesDelete not implemented");
     }
-    
     
 }
 

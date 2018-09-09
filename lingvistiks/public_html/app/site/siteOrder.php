@@ -3,7 +3,7 @@ use Respect\Validation\Validator as v;
 use Respect\Validation\Exceptions\ValidationException;
 
 class siteOrder {
-    
+
 	static $book_link = [
 		1 => 6,
 		2 => 15,
@@ -22,9 +22,6 @@ class siteOrder {
 		$profile_id = (int)$_SESSION['user_id'];
 		$profile_info = get_user_info($profile_id);
 
-		// check a user to be able of creating an order
-		(new CallBackHelper($profile_info))(ActionEnum::OrdersCreate);
-		
 		if(!$profile_info || !$_SESSION['user_id'] || $profile_info->user_group != 4) {
 			site::error404();
 		} else {
@@ -122,20 +119,23 @@ class siteOrder {
 
 				// шаблон страницы
 				$html = twig::fetch('frontend/chank/perfomens_col.tpl');
-				twig::assign('perfomens_col', $html);				
+				twig::assign('perfomens_col', $html);
+				twig::assign('content', twig::fetch('frontend/owner_order_edit.tpl'));
 			}
 		}
 	}
 
 	static function saveOrder($order='') {
-	    
 		$profile_id = (int)$_SESSION['user_id'];
 		$order_id = (int)$_REQUEST['order_id'];
 		$profile_info = get_user_info($profile_id);
-
-		// check a user to be able of creating an order
-		(new CallBackHelper($profile_info))(ActionEnum::OrdersCreate);
 		
+		// the order is a new one ?
+		if (!$order_id)
+		    // check a user have appropriate acl
+		    if (!(new CallBackHelper($profile_info))(ActionEnum::OrdersCreate)) return;
+		
+
 		if(!$profile_info || !$_SESSION['user_id'] || $profile_info->user_group != 4) {
 			site::error404();
 		}
@@ -442,10 +442,7 @@ class siteOrder {
 			// шаблон страницы
 			$html = twig::fetch('frontend/chank/perfomens_col.tpl');
 			twig::assign('perfomens_col', $html);
-			
-			(new CallBackHelper())(ActionEnum::OrdersCreate,'',['user' => get_user_info($_REQUEST['user_id'])]);
-
-			
+			twig::assign('content', twig::fetch('frontend/owner_order_open.tpl'));
 		}
 	}
 
@@ -856,10 +853,11 @@ class siteOrder {
 	static function order_search() {
 
 		$profile_id = (int)$_SESSION['user_id'];
+
 		$profile_info = get_user_info($profile_id);
 
-		// check user's acl for the action 
-		(new CallBackHelper($profile_info))(ActionEnum::OrdersList);
+		// check a user have an appropiate acl
+		if (!(new CallBackHelper($profile_info))(ActionEnum::OrdersList)) return;
 		
 		if(!$profile_info) {
 			site::error404();
@@ -869,7 +867,7 @@ class siteOrder {
 			$page_info->page_title = twig::$lang['order_list'];
 			twig::assign('page_info', $page_info);
 			// title
-			
+
 			// country
 			$country_list = country_by_lang();
 			twig::assign('country_list', $country_list);
@@ -933,7 +931,8 @@ class siteOrder {
 			}
 			// pager
 
-			
+			// шаблон страницы
+			twig::assign('content', twig::fetch('frontend/order_list.tpl'));
 		}
 	}
 

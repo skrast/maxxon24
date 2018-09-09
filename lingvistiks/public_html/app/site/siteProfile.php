@@ -3,8 +3,6 @@ use Respect\Validation\Validator as v;
 use Respect\Validation\Exceptions\ValidationException;
 
 class siteProfile {
-
-
 	static $main_title = [];
 
 	static function user_profile() {
@@ -29,9 +27,23 @@ class siteProfile {
 				self::cropPhoto();
 			}
 
-			
 			if($_REQUEST['save']) {
-				self::saveProfile();
+			    
+			    // TODO: if service list is empty (before first saving)
+			    $profile_info->{'aux_user_service_count_temp'} = is_array($_REQUEST['serv_service']) ? count($_REQUEST['serv_service']): 0;
+			    // check a user have appropriate acl
+			    if (!(new CallBackHelper($profile_info))(ActionEnum::ServicesCreate)) {
+			        
+			        if (backend::isAjax()) {
+			            echo json_encode(array("upload"=>true, "status"=>"success"));
+			            exit;
+			        }
+			        
+			        return;
+			    } else {
+			        self::saveProfile();
+			    }
+			    
 			}
 
 			// country
@@ -443,20 +455,17 @@ class siteProfile {
 		}
 	}
 
-	static function saveProfile() {
+	static function saveProfile() {        
 
+		// справочник по языкам
+		$lang_list = get_book_for_essence(1);
+		// справочник по языкам
 		$user_id = (int)$_SESSION['user_id'];
-
 		$user_info = get_user_info($user_id);
 		if(!$user_info) {
 			exit;
 		}
-		(new CallBackHelper($profile_info))(ActionEnum::ServicesCreate);
-		
-		// справочник по языкам
-		$lang_list = get_book_for_essence(1);
-		// справочник по языкам
-		
+				
 		// загрузка аватара
 		if($_REQUEST['uploads_photo']) {
 			$photos = "";
